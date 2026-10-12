@@ -37,7 +37,11 @@
 
 .oral-case .feature img,.oral-case .pair img{display:block;height:auto;aspect-ratio:auto;max-height:none;object-fit:initial;background:transparent}
 
-</style></head>
+</style><style id="work-image-lightbox-css">
+.work-lightbox{position:fixed;inset:0;z-index:2147483000;display:none;align-items:center;justify-content:center;background:rgba(6,9,11,.96);padding:52px 55px;box-sizing:border-box;overscroll-behavior:contain}
+.work-lightbox.is-open{display:flex}.work-lightbox img{max-height:calc(100dvh - 110px);max-width:100%;width:auto;height:auto;object-fit:contain;box-shadow:0 10px 60px #0006}.work-lightbox button{cursor:pointer;position:absolute;z-index:2;border:1px solid #ffffff70;background:#1d2020bd;color:#fff;border-radius:50%;width:42px;height:42px;font-size:26px;display:grid;place-items:center;line-height:1}.work-lightbox .wl-close{top:14px;right:16px}.work-lightbox .wl-prev{left:12px;top:50%;transform:translateY(-50%)}.work-lightbox .wl-next{right:12px;top:50%;transform:translateY(-50%)}.work-lightbox .wl-counter{position:absolute;bottom:18px;left:0;right:0;color:#eee;text-align:center;font:13px system-ui,sans-serif}.work-gallery-clickable{cursor:zoom-in}@media(max-width:600px){.work-lightbox{padding:52px 8px}.work-lightbox img{max-height:calc(100dvh - 120px)}.work-lightbox .wl-prev{left:5px;top:auto;bottom:12px;transform:none}.work-lightbox .wl-next{right:5px;top:auto;bottom:12px;transform:none}}
+</style>
+</head>
 <body class="project-page oral-case">
 <nav class="project-nav"><a href="../../index.html#project-006">← 返回作品列表</a><a href="../whisky/index.html">下一项目：威士忌 →</a></nav>
 <main>
@@ -54,4 +58,22 @@
 <div class="final-note"><span class="eyebrow">PRODUCT / LIGHT / WATER</span><p>从静态产品到流动水形，让材质和光影共同塑造清晰、有节奏的产品视觉。</p></div>
 </main>
 <div class="project-end"><span>赖世超 · 3D视觉作品</span><a href="../../index.html#project-006">返回全部作品 ↑</a></div>
+<script id="work-image-lightbox-js">
+(()=>{
+  const gallery=[...document.querySelectorAll('main img')].filter(img=>!img.closest('a')&&!img.classList.contains('no-lightbox'));
+  if(!gallery.length)return;
+  const overlay=document.createElement('div');overlay.className='work-lightbox';overlay.setAttribute('role','dialog');overlay.setAttribute('aria-modal','true');overlay.setAttribute('aria-label','作品图片放大查看');
+  overlay.innerHTML='<button type="button" class="wl-close" aria-label="关闭图片">×</button><button type="button" class="wl-prev" aria-label="上一张">‹</button><img alt=""><button type="button" class="wl-next" aria-label="下一张">›</button><span class="wl-counter"></span>';
+  document.body.appendChild(overlay);
+  const full=overlay.querySelector('img'),counter=overlay.querySelector('.wl-counter');let current=0,prior=null;
+  const show=n=>{current=(n+gallery.length)%gallery.length;let item=gallery[current];full.src=item.currentSrc||item.src;full.alt=item.alt||'作品图片';counter.textContent=(current+1)+' / '+gallery.length};
+  const close=()=>{overlay.classList.remove('is-open');document.body.style.overflow='';full.removeAttribute('src');if(prior)prior.focus({preventScroll:true})};
+  gallery.forEach((img,index)=>{img.classList.add('work-gallery-clickable');img.tabIndex=0;img.setAttribute('role','button');img.setAttribute('aria-label','放大查看：'+(img.alt||'作品图片'));const open=()=>{prior=img;show(index);overlay.classList.add('is-open');document.body.style.overflow='hidden';overlay.querySelector('.wl-close').focus({preventScroll:true})};img.addEventListener('click',open);img.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}})});
+  overlay.querySelector('.wl-close').addEventListener('click',close);
+  overlay.querySelector('.wl-prev').addEventListener('click',()=>show(current-1));overlay.querySelector('.wl-next').addEventListener('click',()=>show(current+1));
+  overlay.addEventListener('click',e=>{if(e.target===overlay)close()});
+  document.addEventListener('keydown',e=>{if(!overlay.classList.contains('is-open'))return;if(e.key==='Escape')close();if(e.key==='ArrowRight')show(current+1);if(e.key==='ArrowLeft')show(current-1)});
+  let sx=null;overlay.addEventListener('touchstart',e=>{sx=e.touches[0]?.clientX??null},{passive:true});overlay.addEventListener('touchend',e=>{if(sx===null)return;let delta=(e.changedTouches[0]?.clientX??sx)-sx;if(Math.abs(delta)>60)show(current+(delta<0?1:-1));sx=null},{passive:true});
+})();
+</script>
 </body></html>
