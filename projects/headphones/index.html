@@ -63,6 +63,15 @@
 </style><style id="work-image-lightbox-css">
 .work-lightbox{position:fixed;inset:0;z-index:2147483000;display:none;align-items:center;justify-content:center;background:rgba(6,9,11,.96);padding:52px 55px;box-sizing:border-box;overscroll-behavior:contain}
 .work-lightbox.is-open{display:flex}.work-lightbox img{max-height:calc(100dvh - 110px);max-width:100%;width:auto;height:auto;object-fit:contain;box-shadow:0 10px 60px #0006}.work-lightbox button{cursor:pointer;position:absolute;z-index:2;border:1px solid #ffffff70;background:#1d2020bd;color:#fff;border-radius:50%;width:42px;height:42px;font-size:26px;display:grid;place-items:center;line-height:1}.work-lightbox .wl-close{top:14px;right:16px}.work-lightbox .wl-prev{left:12px;top:50%;transform:translateY(-50%)}.work-lightbox .wl-next{right:12px;top:50%;transform:translateY(-50%)}.work-lightbox .wl-counter{position:absolute;bottom:18px;left:0;right:0;color:#eee;text-align:center;font:13px system-ui,sans-serif}.work-gallery-clickable{cursor:zoom-in}@media(max-width:600px){.work-lightbox{padding:52px 8px}.work-lightbox img{max-height:calc(100dvh - 120px)}.work-lightbox .wl-prev{left:5px;top:auto;bottom:12px;transform:none}.work-lightbox .wl-next{right:5px;top:auto;bottom:12px;transform:none}}
+
+/* Image zoom enhancement: scoped to the full-screen viewer only. */
+.work-lightbox .wl-viewport{position:relative;display:flex;align-items:center;justify-content:center;width:100%;height:100%;overflow:hidden;touch-action:none;user-select:none;cursor:grab}
+.work-lightbox .wl-viewport:active{cursor:grabbing}
+.work-lightbox .wl-viewport img{pointer-events:none;user-select:none;transform-origin:center center;will-change:transform;transition:none;max-width:100%;max-height:100%;object-fit:contain}
+.work-lightbox .wl-zoom-controls{position:absolute;top:14px;left:16px;z-index:4;display:flex;gap:8px}
+.work-lightbox .wl-zoom-controls button{position:static;width:38px;height:38px;font-size:22px}
+.work-lightbox .wl-hint{position:absolute;bottom:40px;left:0;right:0;pointer-events:none;text-align:center;color:#bbb;font:12px system-ui,sans-serif}
+@media(max-width:600px){.work-lightbox .wl-zoom-controls{top:12px;left:12px}.work-lightbox .wl-hint{bottom:52px;font-size:11px}}
 </style>
 </head>
 <body class="project-page headphone-case">
@@ -86,17 +95,47 @@
   const gallery=[...document.querySelectorAll('main img')].filter(img=>!img.closest('a')&&!img.classList.contains('no-lightbox'));
   if(!gallery.length)return;
   const overlay=document.createElement('div');overlay.className='work-lightbox';overlay.setAttribute('role','dialog');overlay.setAttribute('aria-modal','true');overlay.setAttribute('aria-label','作品图片放大查看');
-  overlay.innerHTML='<button type="button" class="wl-close" aria-label="关闭图片">×</button><button type="button" class="wl-prev" aria-label="上一张">‹</button><img alt=""><button type="button" class="wl-next" aria-label="下一张">›</button><span class="wl-counter"></span>';
+  overlay.innerHTML='<div class="wl-viewport"><img alt=""></div><div class="wl-zoom-controls"><button type="button" class="wl-out" aria-label="缩小">−</button><button type="button" class="wl-in" aria-label="放大">+</button><button type="button" class="wl-reset" aria-label="还原缩放" style="font-size:12px;width:52px">还原</button></div><button type="button" class="wl-close" aria-label="关闭图片">×</button><button type="button" class="wl-prev" aria-label="上一张">‹</button><button type="button" class="wl-next" aria-label="下一张">›</button><span class="wl-hint">滚轮 / 双指缩放 · 拖动查看</span><span class="wl-counter"></span>';
   document.body.appendChild(overlay);
-  const full=overlay.querySelector('img'),counter=overlay.querySelector('.wl-counter');let current=0,prior=null;
-  const show=n=>{current=(n+gallery.length)%gallery.length;let item=gallery[current];full.src=item.currentSrc||item.src;full.alt=item.alt||'作品图片';counter.textContent=(current+1)+' / '+gallery.length};
-  const close=()=>{overlay.classList.remove('is-open');document.body.style.overflow='';full.removeAttribute('src');if(prior)prior.focus({preventScroll:true})};
-  gallery.forEach((img,index)=>{img.classList.add('work-gallery-clickable');img.tabIndex=0;img.setAttribute('role','button');img.setAttribute('aria-label','放大查看：'+(img.alt||'作品图片'));const open=()=>{prior=img;show(index);overlay.classList.add('is-open');document.body.style.overflow='hidden';overlay.querySelector('.wl-close').focus({preventScroll:true})};img.addEventListener('click',open);img.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}})});
+  const viewport=overlay.querySelector('.wl-viewport'),full=viewport.querySelector('img'),counter=overlay.querySelector('.wl-counter');
+  let current=0,prior=null,scale=1,dx=0,dy=0,prevOverflow='';
+  const pointers=new Map();let gesture=null,down=null,lastTap=0;
+  const clamp=(v,min,max)=>Math.max(min,Math.min(max,v));
+  function bounds(){const width=full.getBoundingClientRect().width/(scale||1),height=full.getBoundingClientRect().height/(scale||1);return {x:Math.max(0,(width*scale-viewport.clientWidth)/2),y:Math.max(0,(height*scale-viewport.clientHeight)/2)}}
+  function draw(){const b=bounds();dx=clamp(dx,-b.x,b.x);dy=clamp(dy,-b.y,b.y);full.style.transform=`translate(${dx}px,${dy}px) scale(${scale})`;}
+  function reset(){scale=1;dx=0;dy=0;pointers.clear();gesture=null;down=null;full.style.transform='';}
+  function zoom(next,x=viewport.clientWidth/2,y=viewport.clientHeight/2){next=clamp(next,1,4);const old=scale;const cx=x-viewport.clientWidth/2,cy=y-viewport.clientHeight/2;dx=cx-(cx-dx)*next/old;dy=cy-(cy-dy)*next/old;scale=next;draw()}
+  const show=n=>{current=(n+gallery.length)%gallery.length;reset();const item=gallery[current];full.src=item.currentSrc||item.src;full.alt=item.alt||'作品图片';counter.textContent=(current+1)+' / '+gallery.length;};
+  const close=()=>{overlay.classList.remove('is-open');document.body.style.overflow=prevOverflow;reset();full.removeAttribute('src');if(prior)prior.focus({preventScroll:true})};
+  gallery.forEach((img,index)=>{img.classList.add('work-gallery-clickable');img.tabIndex=0;img.setAttribute('role','button');img.setAttribute('aria-label','放大查看：'+(img.alt||'作品图片'));const open=()=>{prior=img;prevOverflow=document.body.style.overflow;show(index);overlay.classList.add('is-open');document.body.style.overflow='hidden';overlay.querySelector('.wl-close').focus({preventScroll:true})};img.addEventListener('click',open);img.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}})});
   overlay.querySelector('.wl-close').addEventListener('click',close);
   overlay.querySelector('.wl-prev').addEventListener('click',()=>show(current-1));overlay.querySelector('.wl-next').addEventListener('click',()=>show(current+1));
+  overlay.querySelector('.wl-in').addEventListener('click',()=>zoom(scale*1.5));overlay.querySelector('.wl-out').addEventListener('click',()=>zoom(scale/1.5));overlay.querySelector('.wl-reset').addEventListener('click',reset);
   overlay.addEventListener('click',e=>{if(e.target===overlay)close()});
-  document.addEventListener('keydown',e=>{if(!overlay.classList.contains('is-open'))return;if(e.key==='Escape')close();if(e.key==='ArrowRight')show(current+1);if(e.key==='ArrowLeft')show(current-1)});
-  let sx=null;overlay.addEventListener('touchstart',e=>{sx=e.touches[0]?.clientX??null},{passive:true});overlay.addEventListener('touchend',e=>{if(sx===null)return;let delta=(e.changedTouches[0]?.clientX??sx)-sx;if(Math.abs(delta)>60)show(current+(delta<0?1:-1));sx=null},{passive:true});
+  document.addEventListener('keydown',e=>{if(!overlay.classList.contains('is-open'))return;if(e.key==='Escape')close();if(e.key==='ArrowRight')show(current+1);if(e.key==='ArrowLeft')show(current-1);if(e.key==='+'||e.key==='=')zoom(scale*1.5);if(e.key==='-')zoom(scale/1.5)});
+  viewport.addEventListener('wheel',e=>{e.preventDefault();const box=viewport.getBoundingClientRect();zoom(scale*(e.deltaY<0?1.15:1/1.15),e.clientX-box.left,e.clientY-box.top)},{passive:false});
+  const coords=e=>({x:e.clientX,y:e.clientY});
+  function pinch(){const p=[...pointers.values()];return {dist:Math.hypot(p[0].x-p[1].x,p[0].y-p[1].y),x:(p[0].x+p[1].x)/2,y:(p[0].y+p[1].y)/2}}
+  viewport.addEventListener('pointerdown',e=>{
+    if(e.pointerType==='mouse'&&e.button!==0)return;
+    viewport.setPointerCapture(e.pointerId);pointers.set(e.pointerId,coords(e));
+    if(pointers.size===1){down={x:e.clientX,y:e.clientY,dx,dy,scale,time:Date.now(),moved:false};gesture=null}
+    if(pointers.size===2){const p=pinch();gesture={...p,scale,dx,dy};down=null}
+  });
+  viewport.addEventListener('pointermove',e=>{
+    if(!pointers.has(e.pointerId))return;
+    const last=pointers.get(e.pointerId);pointers.set(e.pointerId,coords(e));
+    if(pointers.size===2&&gesture){const p=pinch();const next=clamp(gesture.scale*(p.dist/Math.max(1,gesture.dist)),1,4);const rect=viewport.getBoundingClientRect();const cx=gesture.x-rect.left-rect.width/2,cy=gesture.y-rect.top-rect.height/2;scale=next;dx=gesture.dx+(p.x-gesture.x)-cx*(next/gesture.scale-1);dy=gesture.dy+(p.y-gesture.y)-cy*(next/gesture.scale-1);draw()}
+    else if(pointers.size===1&&down){const mx=e.clientX-down.x,my=e.clientY-down.y;if(Math.abs(mx)>7||Math.abs(my)>7)down.moved=true;if(scale>1){dx+=e.clientX-last.x;dy+=e.clientY-last.y;draw()}}
+  });
+  function release(e){if(!pointers.has(e.pointerId))return;const hadTwo=pointers.size>1;pointers.delete(e.pointerId);
+    if(!hadTwo&&down&&scale===1&&e.type==='pointerup'){const delta=e.clientX-down.x;if(Math.abs(delta)>65&&Math.abs(e.clientY-down.y)<90)show(current+(delta<0?1:-1));else if(!down.moved&&Date.now()-lastTap<350){const box=viewport.getBoundingClientRect();zoom(2.5,e.clientX-box.left,e.clientY-box.top);lastTap=0}else if(!down.moved)lastTap=Date.now()}
+    if(hadTwo&&pointers.size===1){const p=[...pointers.values()][0];down={...p,dx,dy,scale,time:Date.now(),moved:true}}else down=null;
+    gesture=null;
+  }
+  viewport.addEventListener('pointerup',release);viewport.addEventListener('pointercancel',release);
+  viewport.addEventListener('dblclick',e=>{if(e.pointerType==='touch')return;const b=viewport.getBoundingClientRect();zoom(scale>1?1:2.5,e.clientX-b.left,e.clientY-b.top)});
+  full.addEventListener('load',()=>{if(overlay.classList.contains('is-open'))draw()});
 })();
 </script>
 </body></html>
