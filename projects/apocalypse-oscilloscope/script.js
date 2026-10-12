@@ -13,48 +13,6 @@ if ('IntersectionObserver' in window) {
   sections.forEach(section => observer.observe(section));
 }
 
-const portfolioImages = [...document.querySelectorAll('main img')];
-const lightbox = document.createElement('dialog');
-lightbox.className = 'lightbox';
-lightbox.setAttribute('aria-label', '图片放大预览');
-lightbox.innerHTML = `
-  <button class="lightbox-close" type="button" aria-label="关闭预览">×</button>
-  <img alt="">
-  <p></p>
-`;
-document.body.append(lightbox);
-
-const lightboxImage = lightbox.querySelector('img');
-const lightboxCaption = lightbox.querySelector('p');
-const closeLightbox = () => lightbox.close();
-
-portfolioImages.forEach(image => {
-  image.classList.add('zoomable');
-  image.tabIndex = 0;
-  image.setAttribute('role', 'button');
-  image.setAttribute('aria-label', `${image.alt || '作品图片'}，点击放大`);
-
-  const openImage = () => {
-    lightboxImage.src = image.currentSrc || image.src;
-    lightboxImage.alt = image.alt || '作品图片放大预览';
-    lightboxCaption.textContent = image.alt || '';
-    lightbox.showModal();
-  };
-
-  image.addEventListener('click', openImage);
-  image.addEventListener('keydown', event => {
-    if (event.key === 'Enter' || event.key === ' ') {
-      event.preventDefault();
-      openImage();
-    }
-  });
-});
-
-lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
-lightbox.addEventListener('click', event => {
-  if (event.target === lightbox) closeLightbox();
-});
-
 window.addEventListener('load', () => {
   if (!window.location.hash) return;
   const target = document.querySelector(window.location.hash);
