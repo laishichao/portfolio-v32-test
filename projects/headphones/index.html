@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>头戴耳机 · 材质与布光｜赖世超作品集</title><link rel="stylesheet" href="../../detail-styles.css">
+<style>
+/* Scoped whisky detail layout; other pages retain their original styles. */
+.headphone-case{--gold:#c0c6c9;--white:#f1f2f1;--quiet:#a9aeaf;--line:#33383a;background:#0d0d0d;color:var(--white)}
+.headphone-case .project-nav{max-width:1260px}
+.headphone-case .case-main{width:min(calc(100% - 56px),1260px);margin:0 auto}
+.headphone-case .case-head{padding:clamp(70px,9vw,140px) 0 48px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr);gap:56px;align-items:end}
+.headphone-case .eyebrow{font:600 13px/1.6 Consolas,monospace;color:var(--gold);letter-spacing:.18em}
+.headphone-case .case-head h1{font-size:clamp(64px,9vw,134px);font-weight:500;letter-spacing:-.075em;line-height:1.05;margin:24px 0 8px}
+.headphone-case .english{font-size:clamp(22px,2.5vw,38px);font-weight:400;color:#a9a7a3;margin:0;letter-spacing:-.03em}
+.headphone-case .case-lead{padding:0 0 9px}
+.headphone-case .capability{font-size:clamp(18px,1.55vw,23px);letter-spacing:.025em;line-height:1.8;color:#e3e9e8;margin:0 0 17px}
+.headphone-case .case-lead p:last-child{font-size:clamp(17px,1.13vw,19px);color:var(--quiet);line-height:1.9;max-width:510px;margin:0}
+.headphone-case figure{margin:0}
+.headphone-case .hero-figure{border-top:1px solid var(--line);padding-top:30px}
+.headphone-case .hero-figure img{width:100%;max-height:88vh;object-fit:contain;background:#111212}
+.headphone-case figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:24px;padding:18px 0 0;color:#aaa7a1;font-size:clamp(15px,1.05vw,17px);line-height:1.75}
+.headphone-case figcaption strong{color:#e4e8e7;font-size:clamp(17px,1.2vw,19px);font-weight:500}
+.headphone-case .section-divider{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:100px 0 23px;border-bottom:1px solid var(--line)}
+.headphone-case .section-divider h2{font-weight:400;font-size:clamp(25px,3vw,42px);letter-spacing:-.035em;margin:0}
+.headphone-case .section-divider span{font:600 13px/1.5 Consolas,monospace;letter-spacing:.13em;color:#aab5b8}
+.headphone-case .detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,3vw,38px);padding-top:34px}
+.headphone-case .detail-grid img{width:100%;aspect-ratio:1;object-fit:contain;background:#111313}
+.headphone-case .detail-grid figcaption{display:block}
+.headphone-case .detail-grid figcaption strong{display:block;margin-bottom:7px}
+.headphone-case .detail-grid figcaption span{display:block;max-width:480px}
+.headphone-case .closing-note{margin:88px 0 90px;padding:30px 0;border-top:1px solid var(--line);display:flex;gap:24px;justify-content:space-between;align-items:center}
+.headphone-case .closing-note p{max-width:760px;color:#a9a7a2;font-size:clamp(16px,1.07vw,18px);line-height:1.85;margin:0}
+.headphone-case .closing-note .eyebrow{white-space:nowrap}
+.headphone-case .project-end{max-width:1260px}
+@media(max-width:760px){
+ .headphone-case .case-main{width:calc(100% - 36px)}
+ .headphone-case .case-head{grid-template-columns:1fr;gap:26px;padding:72px 0 38px}
+ .headphone-case .detail-grid{grid-template-columns:1fr}
+ .headphone-case .section-divider{padding-top:68px}
+ .headphone-case figcaption{display:block}
+ .headphone-case .closing-note{display:block;margin:55px 0}
+ .headphone-case .closing-note .eyebrow{display:block;margin-bottom:14px}
+}
+
+.headphone-case .hero-figure img{max-height:none;aspect-ratio:16/9;object-fit:cover;background:#101111}
+.headphone-case .scene-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:clamp(18px,3vw,38px);padding-top:34px;align-items:start}
+.headphone-case .scene-grid img{display:block;width:100%;object-fit:contain;background:#101111}
+.headphone-case .scene-grid figure:first-child img{aspect-ratio:1;object-fit:contain}
+.headphone-case .scene-grid figure:last-child img{aspect-ratio:3/2;object-fit:contain}
+.headphone-case .product-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.8fr);gap:clamp(18px,3vw,38px);padding-top:34px;align-items:center}
+.headphone-case .product-grid img{display:block;width:100%;object-fit:contain;background:#f5f5f4}
+.headphone-case .product-grid figure:first-child img{aspect-ratio:2/3}
+.headphone-case .product-grid figure:last-child img{aspect-ratio:2200/895}
+.headphone-case .scene-grid figcaption,.headphone-case .product-grid figcaption{display:block}
+.headphone-case .scene-grid figcaption strong,.headphone-case .product-grid figcaption strong{display:block;margin-bottom:7px}
+.headphone-case .scene-grid figcaption span,.headphone-case .product-grid figcaption span{display:block;max-width:540px}
+@media(max-width:760px){.headphone-case .scene-grid,.headphone-case .product-grid{grid-template-columns:1fr}.headphone-case .product-grid figure:first-child img{max-height:65vh}}
+
+/* The landscape hero is intentionally cropped 16:9; other visuals use true dimensions. */
+.headphone-case .hero-figure img{background:transparent}
+.headphone-case .detail-grid img,.headphone-case .scene-grid img,.headphone-case .product-grid img,
+.headphone-case .scene-grid figure:first-child img,.headphone-case .scene-grid figure:last-child img,
+.headphone-case .product-grid figure:first-child img,.headphone-case .product-grid figure:last-child img{display:block;width:100%;height:auto;aspect-ratio:auto;object-fit:initial;background:transparent;max-height:none}
+
+</style></head>
+<body class="project-page headphone-case">
+<nav class="project-nav"><a href="../../index.html#project-003">← 返回作品列表</a><a href="../controller/index.html">下一项目：游戏手柄 →</a></nav>
+<main class="case-main">
+<header class="case-head"><div><div class="eyebrow">PROJECT 003 / MATERIAL & LIGHT</div><h1>头戴耳机</h1><p class="english">Headphones · Product Visual</p></div>
+<div class="case-lead"><p class="capability">材质细节 / 精准布光 / 产品构图</p><p>以深色皮革、金属饰面与温润木纹的质感对照，借由克制的高光和轮廓光，让产品结构在暗部中清晰呈现。</p></div></header>
+<figure class="hero-figure"><img src="../../assets/headphone-02.webp" alt="耳机金属饰面与木质台面的横向主视觉" fetchpriority="high"><figcaption><strong>01 / 材质与光</strong><span>细腻的反射与层次分明的暗部，在近距离呈现产品质感。</span></figcaption></figure>
+<section aria-labelledby="scene-title"><div class="section-divider"><h2 id="scene-title">氛围与空间</h2><span>ENVIRONMENT / 02—03</span></div><div class="scene-grid">
+<figure><img src="../../assets/headphone-01.webp" alt="耳机与木凳置于暗色空间" loading="lazy"><figcaption><strong>02 / 环境氛围</strong><span>以局部光束和大面积暗部，建立安静而有重量的空间关系。</span></figcaption></figure>
+<figure><img src="../../assets/headphone-03.webp" alt="耳机与收纳包的材质细节画面" loading="lazy"><figcaption><strong>03 / 细节构图</strong><span>将金属边框、皮革与织物纳入同一画面，突出材质之间的微妙差异。</span></figcaption></figure>
+</div></section>
+<section aria-labelledby="form-title"><div class="section-divider"><h2 id="form-title">形态与结构</h2><span>PRODUCT / 04—05</span></div><div class="product-grid">
+<figure><img src="../../assets/headphone-04.webp" alt="耳机完整产品形态白底展示" loading="lazy"><figcaption><strong>04 / 整体形态</strong><span>褪去环境干扰，让头梁弧度、耳罩比例与结构衔接成为视觉重点。</span></figcaption></figure>
+<figure><img src="../../assets/headphone-05.webp" alt="耳机耳罩衔接和头梁的局部特写" loading="lazy"><figcaption><strong>05 / 结构特写</strong><span>通过极简背景与局部高光，凸显转折、连接和表面质感。</span></figcaption></figure>
+</div></section>
+<div class="closing-note"><span class="eyebrow">FORM & MATERIAL</span><p>让不同的表面回应同一道光，以细节、构图与明暗塑造产品的视觉性格。</p></div>
+</main><div class="project-end"><span>赖世超 · 3D视觉作品</span><a href="../../index.html#project-003">返回全部作品 ↑</a></div>
+</body></html>

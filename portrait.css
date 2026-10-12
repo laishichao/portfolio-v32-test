@@ -1,0 +1,9 @@
+.portrait-card img{object-position:center 42%}
+.portrait-gallery figure{display:grid;place-items:center;min-height:520px;background:#151515}
+.portrait-gallery img{width:100%;height:auto;max-height:1150px;object-fit:contain}
+@media(max-width:800px){.portrait-gallery figure{min-height:0}.portrait-gallery img{max-height:none}}
+
+/* V24.1: prevent matched grid-row height from exposing empty bands in the shorter portrait */
+.portrait-gallery{align-items:start}
+.portrait-gallery figure{display:block;align-self:start;min-height:0;margin:0;background:transparent}
+.portrait-gallery img{display:block;width:100%;height:auto;max-height:none;object-fit:initial}

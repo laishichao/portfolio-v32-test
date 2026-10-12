@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>游戏手柄 · 曲面与光影｜赖世超作品集</title>
+<link rel="stylesheet" href="../../detail-styles.css">
+<style>
+/* V28 -- game controller case study, scoped to this page only */
+.controller-case{--white:#f1f2f0;--quiet:#a6adaa;--line:#33393a;--accent:#afbfd2;background:#0d0d0d;color:var(--white)}
+.controller-case .project-nav{max-width:1260px}
+.controller-case .case-main{width:min(calc(100% - 56px),1260px);margin:0 auto}
+.controller-case .case-head{padding:clamp(70px,9vw,140px) 0 48px;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);gap:56px;align-items:end}
+.controller-case .eyebrow{font:600 13px/1.6 Consolas,monospace;color:var(--accent);letter-spacing:.17em}
+.controller-case .case-head h1{font-size:clamp(62px,9vw,132px);font-weight:500;letter-spacing:-.075em;line-height:1.04;margin:24px 0 10px}
+.controller-case .english{font-size:clamp(22px,2.5vw,38px);font-weight:400;color:#a9aaa9;margin:0;letter-spacing:-.03em}
+.controller-case .case-lead{padding-bottom:9px}
+.controller-case .capability{font-size:clamp(18px,1.55vw,23px);letter-spacing:.02em;line-height:1.8;color:#e1e7e9;margin:0 0 17px}
+.controller-case .case-lead p:last-child{font-size:clamp(17px,1.13vw,19px);color:var(--quiet);line-height:1.85;max-width:520px;margin:0}
+.controller-case figure{margin:0}
+.controller-case .hero-figure{border-top:1px solid var(--line);padding-top:30px}
+.controller-case .hero-figure img{width:100%;max-height:85vh;object-fit:contain;background:#08090b}
+.controller-case figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:24px;padding:18px 0 0;color:#aeb5b8;font-size:clamp(15px,1.05vw,17px);line-height:1.75}
+.controller-case figcaption strong{color:#edf0f0;font-size:clamp(17px,1.2vw,19px);font-weight:500;white-space:nowrap}
+.controller-case .section-divider{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:100px 0 23px;border-bottom:1px solid var(--line)}
+.controller-case .section-divider h2{font-weight:400;font-size:clamp(25px,3vw,42px);letter-spacing:-.035em;margin:0}
+.controller-case .section-divider span{font:600 13px/1.5 Consolas,monospace;letter-spacing:.13em;color:#9facb5}
+.controller-case .detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,3vw,38px);padding-top:34px;align-items:start}
+.controller-case .detail-grid img{width:100%;aspect-ratio:1;object-fit:contain;background:#090b0e}
+.controller-case .detail-grid figcaption{display:block}
+.controller-case .detail-grid figcaption strong{display:block;margin-bottom:7px}
+.controller-case .detail-grid figcaption span{display:block;max-width:500px}
+.controller-case .shoulder{padding-top:34px}
+.controller-case .shoulder img{width:100%;max-height:85vh;object-fit:contain;background:#090b0e}
+.controller-case .closing-note{margin:88px 0 90px;padding:30px 0;border-top:1px solid var(--line);display:flex;gap:24px;justify-content:space-between;align-items:center}
+.controller-case .closing-note p{max-width:790px;color:#a9b0b4;font-size:clamp(16px,1.07vw,18px);line-height:1.85;margin:0}
+.controller-case .project-end{max-width:1260px}
+@media(max-width:760px){
+ .controller-case .case-main{width:calc(100% - 36px)}
+ .controller-case .case-head{grid-template-columns:1fr;gap:26px;padding:72px 0 38px}
+ .controller-case .detail-grid{grid-template-columns:1fr}
+ .controller-case .section-divider{padding-top:68px}
+ .controller-case figcaption{display:block}
+ .controller-case .closing-note{display:block;margin:55px 0}
+ .controller-case .closing-note .eyebrow{display:block;margin-bottom:14px}
+}
+
+/* V31: native image ratio, never letterbox the 1:1 renders inside a shallow element. */
+.controller-case .hero-figure img,.controller-case .shoulder img{display:block;width:100%;height:auto;max-height:none;aspect-ratio:auto;object-fit:initial;background:transparent}
+.controller-case .hero-figure img,.controller-case .shoulder img{max-width:960px;margin-inline:auto}
+.controller-case .detail-grid img{display:block;width:100%;height:auto;aspect-ratio:auto;object-fit:initial;background:transparent}
+
+</style>
+</head>
+<body class="project-page controller-case">
+<nav class="project-nav"><a href="../../index.html#project-004">← 返回作品列表</a><a href="../whisky/index.html">下一项目：威士忌 →</a></nav>
+<main class="case-main">
+<header class="case-head">
+<div><div class="eyebrow">PROJECT 004 / FORM & LIGHT</div><h1>游戏手柄</h1><p class="english">Controller · Product Visual</p></div>
+<div class="case-lead"><p class="capability">曲面表现 / 轮廓布光 / 结构细节</p><p>以冷蓝与暖金色光线勾勒连续曲面，让握持形态在暗部中显现；从整体轮廓延伸至按键、摇杆与肩键的精细质感。</p></div>
+</header>
+<figure class="hero-figure"><img src="../../assets/controller-01.webp" alt="游戏手柄整体主视觉，冷暖轮廓光突出曲面造型" fetchpriority="high"><figcaption><strong>01 / 形态与光</strong><span>冷暖光线在曲面交界处形成层次，突出握持轮廓与按键布局。</span></figcaption></figure>
+<section aria-labelledby="control-title"><div class="section-divider"><h2 id="control-title">操控细节</h2><span>CONTROL / 02—03</span></div>
+<div class="detail-grid">
+<figure><img src="../../assets/controller-02.webp" alt="游戏手柄十字键材质与边缘高光特写" loading="lazy"><figcaption><strong>02 / 十字键</strong><span>微弱的暖色反射沿边缘掠过，凸显按键厚度与表面肌理。</span></figcaption></figure>
+<figure><img src="../../assets/controller-04.webp" alt="游戏手柄摇杆与圆弧结构特写" loading="lazy"><figcaption><strong>03 / 摇杆结构</strong><span>弧形过渡、细腻暗部与柔和高光，共同呈现曲面间的结构关系。</span></figcaption></figure>
+</div></section>
+<section aria-labelledby="shoulder-title"><div class="section-divider"><h2 id="shoulder-title">肩键与光影</h2><span>STRUCTURE / 04</span></div>
+<figure class="shoulder"><img src="../../assets/controller-03.webp" alt="游戏手柄肩键 LB RB 特写与冷暖布光" loading="lazy"><figcaption><strong>04 / 局部光影</strong><span>冷蓝轮廓与暖色指示光彼此呼应，强调肩键的层次、结构和空间深度。</span></figcaption></figure>
+</section>
+<div class="closing-note"><span class="eyebrow">FORM / SURFACE / LIGHT</span><p>让光沿产品的结构流动，以克制的明暗与精确的局部构图，呈现手柄的形态和触感。</p></div>
+</main>
+<div class="project-end"><span>赖世超 · 3D视觉作品</span><a href="../../index.html#project-004">返回全部作品 ↑</a></div>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>威士忌 · 材质与色彩研究｜赖世超作品集</title>
+<link rel="stylesheet" href="../../detail-styles.css">
+<style>
+/* Scoped whisky detail layout; other pages retain their original styles. */
+.whisky-case{--gold:#c7a68d;--white:#f3f0e9;--quiet:#aaa8a3;--line:#383431;background:#0d0d0d;color:var(--white)}
+.whisky-case .project-nav{max-width:1260px}
+.whisky-case .case-main{width:min(calc(100% - 56px),1260px);margin:0 auto}
+.whisky-case .case-head{padding:clamp(70px,9vw,140px) 0 48px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr);gap:56px;align-items:end}
+.whisky-case .eyebrow{font:600 13px/1.6 Consolas,monospace;color:var(--gold);letter-spacing:.18em}
+.whisky-case .case-head h1{font-size:clamp(64px,9vw,134px);font-weight:500;letter-spacing:-.075em;line-height:1.05;margin:24px 0 8px}
+.whisky-case .english{font-size:clamp(22px,2.5vw,38px);font-weight:400;color:#a9a7a3;margin:0;letter-spacing:-.03em}
+.whisky-case .case-lead{padding:0 0 9px}
+.whisky-case .capability{font-size:clamp(18px,1.55vw,23px);letter-spacing:.025em;line-height:1.8;color:#e9e2d9;margin:0 0 17px}
+.whisky-case .case-lead p:last-child{font-size:clamp(17px,1.13vw,19px);color:var(--quiet);line-height:1.9;max-width:510px;margin:0}
+.whisky-case figure{margin:0}
+.whisky-case .hero-figure{border-top:1px solid var(--line);padding-top:30px}
+.whisky-case .hero-figure img{width:100%;max-height:88vh;object-fit:contain;background:#0b0a0a}
+.whisky-case figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:24px;padding:18px 0 0;color:#aaa7a1;font-size:clamp(15px,1.05vw,17px);line-height:1.75}
+.whisky-case figcaption strong{color:#e7e3dc;font-size:clamp(17px,1.2vw,19px);font-weight:500}
+.whisky-case .section-divider{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:100px 0 23px;border-bottom:1px solid var(--line)}
+.whisky-case .section-divider h2{font-weight:400;font-size:clamp(25px,3vw,42px);letter-spacing:-.035em;margin:0}
+.whisky-case .section-divider span{font:600 13px/1.5 Consolas,monospace;letter-spacing:.13em;color:#b89b86}
+.whisky-case .detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,3vw,38px);padding-top:34px}
+.whisky-case .detail-grid img{width:100%;aspect-ratio:1;object-fit:contain;background:#100f0e}
+.whisky-case .detail-grid figcaption{display:block}
+.whisky-case .detail-grid figcaption strong{display:block;margin-bottom:7px}
+.whisky-case .detail-grid figcaption span{display:block;max-width:480px}
+.whisky-case .closing-note{margin:88px 0 90px;padding:30px 0;border-top:1px solid var(--line);display:flex;gap:24px;justify-content:space-between;align-items:center}
+.whisky-case .closing-note p{max-width:760px;color:#a9a7a2;font-size:clamp(16px,1.07vw,18px);line-height:1.85;margin:0}
+.whisky-case .closing-note .eyebrow{white-space:nowrap}
+.whisky-case .project-end{max-width:1260px}
+@media(max-width:760px){
+ .whisky-case .case-main{width:calc(100% - 36px)}
+ .whisky-case .case-head{grid-template-columns:1fr;gap:26px;padding:72px 0 38px}
+ .whisky-case .detail-grid{grid-template-columns:1fr}
+ .whisky-case .section-divider{padding-top:68px}
+ .whisky-case figcaption{display:block}
+ .whisky-case .closing-note{display:block;margin:55px 0}
+ .whisky-case .closing-note .eyebrow{display:block;margin-bottom:14px}
+}
+
+.whisky-case .hero-figure img{display:block;width:100%;max-width:960px;margin-inline:auto;height:auto;max-height:none;aspect-ratio:auto;object-fit:initial;background:transparent}
+.whisky-case .detail-grid img{display:block;width:100%;height:auto;aspect-ratio:auto;object-fit:initial;background:transparent}
+
+</style>
+</head>
+<body class="project-page whisky-case">
+<nav class="project-nav">
+<a href="../../index.html#project-005">← 返回作品列表</a>
+<a href="../graphics-card/index.html">下一项目：显卡动画 →</a>
+</nav>
+<main class="case-main">
+<header class="case-head">
+ <div>
+  <div class="eyebrow">PROJECT 005 / MATERIAL & COLOR STUDY</div>
+  <h1>威士忌</h1>
+  <p class="english">Whisky · Material Study</p>
+ </div>
+ <div class="case-lead">
+  <p class="capability">玻璃折射 / 风格化色彩 / 情绪布光</p>
+  <p>以玻璃的通透与折射为起点，让琥珀色酒液在深红色光影中呈现层次与温度。</p>
+ </div>
+</header>
+<figure class="hero-figure">
+<img src="../../assets/whisky-01.webp" alt="威士忌酒瓶整体成品，展示色彩和光影" loading="eager" decoding="async">
+<figcaption><strong>01 / 整体视觉</strong><span>琥珀与深红交织，在明暗之间勾勒瓶身轮廓。</span></figcaption>
+</figure>
+<section aria-labelledby="details-title">
+ <div class="section-divider"><h2 id="details-title">材质与局部细节</h2><span>DETAILS / 02—03</span></div>
+ <div class="detail-grid">
+  <figure>
+   <img src="../../assets/whisky-02.webp" alt="威士忌玻璃与酒液局部细节" loading="lazy" decoding="async">
+   <figcaption><strong>02 / 玻璃与酒液</strong><span>厚薄变化与折射高光，交织出玻璃和酒液的通透层次。</span></figcaption>
+  </figure>
+  <figure>
+   <img src="../../assets/whisky-03.webp" alt="威士忌瓶身铭牌和材质表面细节" loading="lazy" decoding="async">
+   <figcaption><strong>03 / 标签与表面质感</strong><span>金色纹饰与细密表面纹理，在反射光中呈现丰富的质感对比。</span></figcaption>
+  </figure>
+ </div>
+</section>
+<div class="closing-note"><span class="eyebrow">MATERIAL & LIGHT</span><p>让光成为设计的一部分，以色彩、折射与材质细节塑造视觉情绪。</p></div>
+</main>
+<div class="project-end"><span>赖世超 · 3D视觉作品</span><a href="../../index.html#project-005">返回全部作品 ↑</a></div>
+</body>
+</html>
