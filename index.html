@@ -194,63 +194,10 @@ mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.14) 10%,rgba(0,0,0,
  .works .project-feature .project-capability{font-size:15px;letter-spacing:0}
 }
 </style>
-
-<style id="v32-mobile-layout">
-/* Mobile-only layout. Desktop V45 remains unchanged. */
-.mobile-sculpture-play{display:none}
-@media(max-width:600px){
- html,body{max-width:100%;overflow-x:clip}
- .site-header{position:relative;display:flex;align-items:center;justify-content:space-between;flex-wrap:nowrap;padding:19px 20px 12px;margin-bottom:0;gap:10px;font-size:10px;letter-spacing:.09em}
- .site-header .identity{gap:9px;min-width:0;max-width:62%;white-space:nowrap;font-size:10px;letter-spacing:.07em}
- .site-header .identity span{display:none}
- .site-header .identity i{flex:none}
- .site-header nav{gap:16px;flex:none;font-size:10px;letter-spacing:.07em}
- .hero{min-height:calc(100svh - 53px);padding:65px 21px 58px;justify-content:space-between}
- .hero .index{font-size:10px;line-height:1.7;letter-spacing:.11em;max-width:80%;z-index:4}
- .name-composition{z-index:4;max-width:100%;gap:9px}
- .name-composition .main-title{font-size:clamp(48px,13.2vw,80px)!important;letter-spacing:-.025em!important;line-height:.93;white-space:nowrap}
- .name-composition .main-title > span:last-child{margin-left:6%!important}
- .name-signature{padding-left:9px;margin-top:2px}
- .signature-cn{font-size:clamp(16px,4.2vw,24px)!important}
- .signature-caption{font-size:8px;line-height:1.5}
- .v18-sculpture{top:18%;right:-42%;width:117%;height:55%;opacity:.66;z-index:1}
- .v18-sculpture video{object-fit:contain;object-position:center}
- .hero .bottom{z-index:5;gap:25px;align-items:stretch}
- .hero .desc{max-width:94%;line-height:1.8;font-size:12px}
- .hero .desc strong{font-size:10px;line-height:1.4;letter-spacing:.09em;margin-bottom:12px}
- .scroll-link{align-self:flex-start;max-width:100%;font-size:10px;letter-spacing:.1em}
- .works{padding:65px 20px 90px}
- .works .topline{font-size:9px;letter-spacing:.12em}
- .works .topline span:last-child{display:none}
- .works .project-feature{display:flex;flex-direction:column;align-items:stretch;gap:0;padding:27px 0 64px}
- .works .project-feature .project-art{order:0;width:100%;aspect-ratio:1.35;margin:0 0 20px;transform:none!important}
- .works .project-feature .project-copy{order:1;padding:0}
- .works .project-feature h3{font-size:clamp(27px,8vw,41px);line-height:1.2;margin:14px 0}
- .works .project-feature .project-capability{font-size:14px;line-height:1.65;margin:0 0 12px}
- .works .project-feature .project-story{font-size:13px;line-height:1.9;margin:0 0 15px;max-width:100%}
- .works .project-feature .project-specialties{display:flex;flex-wrap:wrap;gap:8px;max-width:100%}
- .works .project-feature .project-enter{margin-top:21px}
- .works .project-art-index{font-size:9px}
- #intro .hint{top:max(22px,env(safe-area-inset-top));left:20px;right:20px;letter-spacing:.09em}
- #intro video{object-fit:contain}
- #intro .actionbar{left:16px;right:16px;bottom:max(20px,env(safe-area-inset-bottom));gap:10px}
- #intro button{font-size:12px;padding:12px 11px}
- #intro .playbtn{width:172px;max-height:57px}
- .mobile-sculpture-play{position:absolute;display:none;bottom:10%;right:25%;z-index:10;border:1px solid #8889;border-radius:40px;padding:9px 13px;background:#ecebe8dd;color:#343836;font-size:11px;pointer-events:auto}
- .v18-sculpture.need-tap{pointer-events:auto}
- .v18-sculpture.need-tap .mobile-sculpture-play{display:block}
-}
-@media(max-width:360px){.site-header{padding-left:14px;padding-right:14px}.site-header nav{gap:10px}.name-composition .main-title{font-size:13vw!important}}
-</style>
-<style id="v32-mobile-stability">
-@media(max-width:600px){#intro video{width:100%;height:100%;object-fit:contain;background:#080a0a}
-#intro.awaiting .playbtn{display:block;z-index:4;background:rgba(20,25,25,.94);color:white;border:1px solid #ffffff65;border-radius:40px}
-#intro.awaiting:after{content:'手机端点击播放片头，或直接跳过进入作品集';position:absolute;top:calc(50% + 50px);left:15px;right:15px;text-align:center;font-size:12px;letter-spacing:.04em;color:#d9dedb;pointer-events:none}
-#intro .actionbar{z-index:5}#intro .hint{z-index:5}}
-</style></head><body>
-<div id="intro"><video id="film" poster="assets/poster.jpg" autoplay muted playsinline webkit-playsinline preload="metadata"><source src="assets/intro-mobile.mp4" media="(max-width: 600px)" type="video/mp4"><source src="assets/intro.mp4" type="video/mp4"></video><div class="hint">LAI SHI CHAO &nbsp;/&nbsp; AN INTRODUCTION</div><button class="playbtn" id="play">▶ 播放片头</button><div class="error">片头视频暂时无法加载。<br>请确认 assets/intro.mp4 与 index.html 同在解压后的文件夹中。<br><button id="retry">重试播放</button></div><div class="actionbar"><button id="sound">开启声音 ↗</button><button id="skip">跳过片头 →</button></div></div><div id="flash" aria-hidden="true"></div>
+<style>@media(max-width:700px){#intro.awaiting .playbtn{display:none!important}}</style></head><body>
+<div id="intro"><video id="film" poster="assets/poster.jpg" autoplay muted playsinline webkit-playsinline preload="metadata"><source media="(max-width: 700px)" src="assets/intro-mobile.mp4" type="video/mp4"><source src="assets/intro.mp4" type="video/mp4"></video><div class="hint">LAI SHI CHAO &nbsp;/&nbsp; AN INTRODUCTION</div><button class="playbtn" id="play">▶ 播放片头</button><div class="error">片头视频暂时无法加载。<br>请确认 assets/intro.mp4 与 index.html 同在解压后的文件夹中。<br><button id="retry">重试播放</button></div><div class="actionbar"><button id="sound">开启声音 ↗</button><button id="skip">跳过片头 →</button></div></div><div id="flash" aria-hidden="true"></div>
 <header class="site-header"><a class="identity" href="#top"><i></i> LAI SHI CHAO <span style="color:#777">/ PORTFOLIO</span></a><nav><a href="#works">WORKS</a><a href="mailto:hello@example.com" id="contact">CONTACT</a></nav></header>
-<main id="top"><section class="hero" id="hero"><div class="depth-world" aria-hidden="true"><div class="plane"></div><div class="ring"></div><div class="depth-label">DEPTH / FORM / FEELING</div></div><div class="v18-sculpture" aria-label="流动的半透明雕塑"><video id="v18SculptureVideo" autoplay muted loop playsinline webkit-playsinline preload="metadata" poster="assets/sculpture-poster.jpg"><source src="assets/sculpture-mobile.mp4" media="(max-width: 600px)" type="video/mp4"><source src="assets/sculpture-motion.mp4" type="video/mp4"></video><button type="button" id="sculpturePlay" class="mobile-sculpture-play" aria-label="播放流动雕塑">▶ 播放动态雕塑</button></div><div class="index">MOTION DESIGN &nbsp;·&nbsp; VISUAL STORYTELLING &nbsp; / &nbsp; 2026</div><div class="name-composition" id="nameComposition"><h1 class="main-title"><span>LAI SHI</span><span>CHAO</span></h1><div class="name-signature" aria-label="赖世超"><span class="signature-cn">赖<br>世<br>超</span><span class="signature-caption">VISUAL<br>ARTIST</span></div><div class="name-echo" aria-hidden="true">L / S / C</div></div><div class="side-mark">AN OPEN WORLD OF VISUAL STORIES — 001</div><div class="bottom"><div class="desc"><strong>EVERY FRAME HAS A STORY.</strong>用影像、光线与运动，讲述视觉背后的故事。<br>探索每个画面中值得被感受的细节。</div><a class="scroll-link" href="#chapterTransition">EXPLORE SELECTED WORKS <span class="circle">↓</span></a></div></section>
+<main id="top"><section class="hero" id="hero"><div class="depth-world" aria-hidden="true"><div class="plane"></div><div class="ring"></div><div class="depth-label">DEPTH / FORM / FEELING</div></div><div class="v18-sculpture" aria-label="流动的半透明雕塑"><video id="v18SculptureVideo" autoplay muted loop playsinline preload="metadata" poster="assets/sculpture-poster.jpg"><source media="(max-width: 700px)" src="assets/sculpture-mobile.mp4" type="video/mp4"><source src="assets/sculpture-motion.mp4" type="video/mp4"></video></div><div class="index">MOTION DESIGN &nbsp;·&nbsp; VISUAL STORYTELLING &nbsp; / &nbsp; 2026</div><div class="name-composition" id="nameComposition"><h1 class="main-title"><span>LAI SHI</span><span>CHAO</span></h1><div class="name-signature" aria-label="赖世超"><span class="signature-cn">赖<br>世<br>超</span><span class="signature-caption">VISUAL<br>ARTIST</span></div><div class="name-echo" aria-hidden="true">L / S / C</div></div><div class="side-mark">AN OPEN WORLD OF VISUAL STORIES — 001</div><div class="bottom"><div class="desc"><strong>EVERY FRAME HAS A STORY.</strong>用影像、光线与运动，讲述视觉背后的故事。<br>探索每个画面中值得被感受的细节。</div><a class="scroll-link" href="#chapterTransition">EXPLORE SELECTED WORKS <span class="circle">↓</span></a></div></section>
 <section class="chapter-transition" id="chapterTransition" aria-label="进入精选作品章节"><div class="chapter-content" id="chapterContent"><span class="chapter-eyebrow">A NEW CHAPTER</span><h2 class="chapter-title">Selected Works</h2><span class="chapter-cn">精选作品</span><span class="chapter-arrow" aria-hidden="true">↓</span></div></section>
 <section class="works" id="works">
   <div class="topline"><span>01 / SELECTED WORKS</span><span>SCROLL TO EXPLORE ↓</span></div>
@@ -395,7 +342,11 @@ function initElasticName(root){
   window.addEventListener('blur',leave);
 }
 
-(()=>{const intro=document.getElementById('intro'),film=document.getElementById('film'),flash=document.getElementById('flash'),sound=document.getElementById('sound'),play=document.getElementById('play');let entered=false;function enter(fromVideo){if(entered)return;entered=true;if(fromVideo){flash.classList.add('show');setTimeout(()=>{intro.classList.add('dismissed');flash.classList.add('clear')},160)}else{intro.classList.add('dismissed')}setTimeout(()=>{intro.style.display='none';flash.style.display='none';film.pause()},1500)}film.addEventListener('ended',()=>enter(true));document.getElementById('skip').addEventListener('click',()=>enter(false));sound.addEventListener('click',()=>{film.muted=!film.muted;sound.textContent=film.muted?'开启声音 ↗':'静音 ↗'});play.addEventListener('click',()=>film.play().then(()=>intro.classList.remove('awaiting')).catch(()=>intro.classList.add('failed')));document.getElementById('retry').addEventListener('click',()=>{intro.classList.remove('failed');film.load();film.play().catch(()=>intro.classList.add('awaiting'))});film.addEventListener('error',()=>intro.classList.add('failed'));if(!window.matchMedia('(max-width: 600px)').matches){const p=film.play();if(p&&p.catch)p.catch(()=>intro.classList.add('awaiting'));}else{intro.classList.add('awaiting');}document.getElementById('contact').addEventListener('click',e=>{e.preventDefault();alert('联系入口将在你提供公开联系方式后启用。')});const hero=document.getElementById('hero');const nameComposition=document.getElementById('nameComposition');const motion=window.matchMedia('(prefers-reduced-motion: reduce)');if(!motion.matches){initElasticName(nameComposition);hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();hero.style.setProperty('--mx',((e.clientX-r.left)/r.width-.5).toFixed(3));hero.style.setProperty('--my',((e.clientY-r.top)/r.height-.5).toFixed(3))});hero.addEventListener('pointerleave',()=>{hero.style.setProperty('--mx',0);hero.style.setProperty('--my',0)});document.querySelectorAll('.tilt').forEach(el=>{el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform=`perspective(900px) rotateY(${x*5}deg) rotateX(${-y*5}deg)`});el.addEventListener('pointerleave',()=>el.style.transform='')})}if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}}),{threshold:.12});document.querySelectorAll('.work').forEach(el=>observer.observe(el))}else{document.querySelectorAll('.work').forEach(el=>el.classList.add('visible'))}})();
+(()=>{const intro=document.getElementById('intro'),film=document.getElementById('film'),flash=document.getElementById('flash'),sound=document.getElementById('sound'),play=document.getElementById('play');const mobileVideo=window.matchMedia('(max-width: 700px)').matches;
+const sculpture=document.getElementById('v18SculptureVideo');
+if(mobileVideo){sculpture.pause();sculpture.removeAttribute('autoplay');sculpture.preload='none';}
+function startSculpture(){if(!mobileVideo)return;sculpture.muted=true;sculpture.playsInline=true;const result=sculpture.play();if(result&&result.catch)result.catch(()=>{const once=()=>{sculpture.play().catch(()=>{});document.removeEventListener('touchstart',once)};document.addEventListener('touchstart',once,{passive:true,once:true})});}
+let entered=false;function enter(fromVideo){if(entered)return;entered=true;if(mobileVideo)startSculpture();if(fromVideo){flash.classList.add('show');setTimeout(()=>{intro.classList.add('dismissed');flash.classList.add('clear')},160)}else{intro.classList.add('dismissed')}setTimeout(()=>{intro.style.display='none';flash.style.display='none';film.pause()},1500)}film.addEventListener('ended',()=>enter(true));document.getElementById('skip').addEventListener('click',()=>enter(false));sound.addEventListener('click',()=>{film.muted=!film.muted;sound.textContent=film.muted?'开启声音 ↗':'静音 ↗'});play.addEventListener('click',()=>film.play().then(()=>intro.classList.remove('awaiting')).catch(()=>intro.classList.add('failed')));document.getElementById('retry').addEventListener('click',()=>{intro.classList.remove('failed');film.load();film.play().catch(()=>intro.classList.add('awaiting'))});film.addEventListener('error',()=>intro.classList.add('failed'));if(mobileVideo&&document.documentElement.classList.contains('returning-to-works'))startSculpture();const p=film.play();if(p&&p.catch)p.catch(()=>{intro.classList.add('awaiting');if(mobileVideo){film.addEventListener('click',()=>film.play().catch(()=>{}),{once:true})}});document.getElementById('contact').addEventListener('click',e=>{e.preventDefault();alert('联系入口将在你提供公开联系方式后启用。')});const hero=document.getElementById('hero');const nameComposition=document.getElementById('nameComposition');const motion=window.matchMedia('(prefers-reduced-motion: reduce)');if(!motion.matches){initElasticName(nameComposition);hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();hero.style.setProperty('--mx',((e.clientX-r.left)/r.width-.5).toFixed(3));hero.style.setProperty('--my',((e.clientY-r.top)/r.height-.5).toFixed(3))});hero.addEventListener('pointerleave',()=>{hero.style.setProperty('--mx',0);hero.style.setProperty('--my',0)});document.querySelectorAll('.tilt').forEach(el=>{el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform=`perspective(900px) rotateY(${x*5}deg) rotateX(${-y*5}deg)`});el.addEventListener('pointerleave',()=>el.style.transform='')})}if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}}),{threshold:.12});document.querySelectorAll('.work').forEach(el=>observer.observe(el))}else{document.querySelectorAll('.work').forEach(el=>el.classList.add('visible'))}})();
 
 /* V20: scroll-controlled chapter appearance; no changes to spring letters or work tilts. */
 (()=>{
@@ -440,66 +391,6 @@ function restore(){
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',restore);else restore();
 window.addEventListener('pageshow',restore);
-})();
-</script>
-
-<script id="v32-mobile-video-support">
-(()=>{
-  if(!matchMedia('(max-width: 600px)').matches)return;
-  const intro=document.getElementById('intro');
-  const film=document.getElementById('film');
-  const sculpture=document.getElementById('v18SculptureVideo');
-  const wrapper=sculpture?.closest('.v18-sculpture');
-  const btn=document.getElementById('sculpturePlay');
-  const skip=document.getElementById('skip');
-  const play=document.getElementById('play');
-  if(!intro||!film||!sculpture||!wrapper)return;
-  const mobileUrl='assets/sculpture-mobile.mp4';
-  const introUrl='assets/intro-mobile.mp4';
-  // Mobile first paint: image-based start, with explicit play or skip.
-  film.pause();film.removeAttribute('autoplay');film.removeAttribute('src');
-  film.querySelectorAll('source').forEach(x=>x.remove());
-  film.preload='none';film.poster='assets/poster.jpg';film.load();
-  intro.classList.add('awaiting');
-  const startFilm=()=>{
-    film.muted=true;film.defaultMuted=true;
-    film.playsInline=true;film.setAttribute('playsinline','');
-    if(!film.getAttribute('src')){film.src=introUrl;film.preload='auto';film.load()}
-    film.play().then(()=>intro.classList.remove('awaiting')).catch(()=>intro.classList.add('awaiting'));
-  };
-  // replace older click handler running before us, preventing simultaneous competing play calls
-  play?.addEventListener('click',(e)=>{e.stopImmediatePropagation();startFilm()},true);
-  sculpture.pause();sculpture.removeAttribute('autoplay');
-  sculpture.querySelectorAll('source').forEach(x=>x.remove());
-  sculpture.removeAttribute('src');sculpture.preload='none';sculpture.load();
-  let sculptureStarted=false;
-  const showTap=()=>wrapper.classList.add('need-tap');
-  const hideTap=()=>wrapper.classList.remove('need-tap');
-  function startSculpture(){
-    if(document.hidden)return;
-    if(intro.style.display!=='none'&&!intro.classList.contains('dismissed'))return;
-    if(!sculptureStarted){sculpture.src=mobileUrl;sculpture.preload='auto';sculptureStarted=true;sculpture.load()}
-    sculpture.muted=true;sculpture.defaultMuted=true;sculpture.loop=true;
-    sculpture.playsInline=true;
-    const result=sculpture.play();
-    if(result&&result.then)result.then(hideTap).catch(showTap);
-  }
-  btn?.addEventListener('click',startSculpture);
-  sculpture.addEventListener('playing',hideTap);
-  sculpture.addEventListener('error',showTap);
-  sculpture.addEventListener('stalled',()=>{if(sculpture.paused)showTap()});
-  // Skipping and completing intro both enable sculpture.
-  skip?.addEventListener('click',()=>setTimeout(startSculpture,600));
-  film.addEventListener('ended',()=>setTimeout(startSculpture,750));
-  const observer=new MutationObserver(()=>{
-    if(intro.classList.contains('dismissed')||intro.style.display==='none'){
-      setTimeout(startSculpture,500);observer.disconnect();
-    }
-  });
-  observer.observe(intro,{attributes:true,attributeFilter:['class','style']});
-  if(document.documentElement.classList.contains('returning-to-works')){film.pause();intro.style.display='none';}
-  document.addEventListener('visibilitychange',()=>{if(document.hidden)sculpture.pause();else startSculpture()});
-  window.addEventListener('pageshow',startSculpture);
 })();
 </script>
 </body></html>
