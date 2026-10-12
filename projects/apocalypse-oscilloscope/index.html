@@ -7,19 +7,6 @@
   <title>末日示波器｜作品集</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%2310110f'/%3E%3Cpath d='M8 34h10l5-14 8 29 7-21 5 9h13' fill='none' stroke='%238bc8ad' stroke-width='4' stroke-linejoin='round'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="styles.css">
-<style id="work-image-lightbox-css">
-.work-lightbox{position:fixed;inset:0;z-index:2147483000;display:none;align-items:center;justify-content:center;background:rgba(6,9,11,.96);padding:52px 55px;box-sizing:border-box;overscroll-behavior:contain}
-.work-lightbox.is-open{display:flex}.work-lightbox img{max-height:calc(100dvh - 110px);max-width:100%;width:auto;height:auto;object-fit:contain;box-shadow:0 10px 60px #0006}.work-lightbox button{cursor:pointer;position:absolute;z-index:2;border:1px solid #ffffff70;background:#1d2020bd;color:#fff;border-radius:50%;width:42px;height:42px;font-size:26px;display:grid;place-items:center;line-height:1}.work-lightbox .wl-close{top:14px;right:16px}.work-lightbox .wl-prev{left:12px;top:50%;transform:translateY(-50%)}.work-lightbox .wl-next{right:12px;top:50%;transform:translateY(-50%)}.work-lightbox .wl-counter{position:absolute;bottom:18px;left:0;right:0;color:#eee;text-align:center;font:13px system-ui,sans-serif}.work-gallery-clickable{cursor:zoom-in}@media(max-width:600px){.work-lightbox{padding:52px 8px}.work-lightbox img{max-height:calc(100dvh - 120px)}.work-lightbox .wl-prev{left:5px;top:auto;bottom:12px;transform:none}.work-lightbox .wl-next{right:5px;top:auto;bottom:12px;transform:none}}
-
-/* Image zoom enhancement: scoped to the full-screen viewer only. */
-.work-lightbox .wl-viewport{position:relative;display:flex;align-items:center;justify-content:center;width:100%;height:100%;overflow:hidden;touch-action:none;user-select:none;cursor:grab}
-.work-lightbox .wl-viewport:active{cursor:grabbing}
-.work-lightbox .wl-viewport img{pointer-events:none;user-select:none;transform-origin:center center;will-change:transform;transition:none;max-width:100%;max-height:100%;object-fit:contain}
-.work-lightbox .wl-zoom-controls{position:absolute;top:14px;left:16px;z-index:4;display:flex;gap:8px}
-.work-lightbox .wl-zoom-controls button{position:static;width:38px;height:38px;font-size:22px}
-.work-lightbox .wl-hint{position:absolute;bottom:40px;left:0;right:0;pointer-events:none;text-align:center;color:#bbb;font:12px system-ui,sans-serif}
-@media(max-width:600px){.work-lightbox .wl-zoom-controls{top:12px;left:12px}.work-lightbox .wl-hint{bottom:52px;font-size:11px}}
-</style>
 </head>
 <body>
   <a class="skip" href="#main">跳到主要内容</a>
@@ -36,7 +23,7 @@
 
   <main id="main">
     <section class="cover" id="cover" aria-labelledby="cover-title">
-      <img src="assets/hero-selected.webp" alt="末日示波器英雄视角" fetchpriority="high">
+      <img src="assets/hero-selected.webp" alt="末日示波器英雄视角" fetchpriority="high" data-full="assets/hq-hero-selected.png">
       <div class="cover-copy">
         <p class="eyebrow">FILE 00 / PROP &amp; ENVIRONMENT</p>
         <h1 id="cover-title">末日<br>示波器</h1>
@@ -86,8 +73,8 @@
         <h2 id="views-title">设备结构视角</h2>
       </header>
       <div class="view-grid">
-        <figure><img src="assets/hero-left.webp" alt="设备左侧结构视角" loading="lazy"><figcaption>LEFT 3/4 VIEW · 外壳、提手与散热结构</figcaption></figure>
-        <figure><img src="assets/hero-right.webp" alt="设备右侧结构视角" loading="lazy"><figcaption>RIGHT 3/4 VIEW · 控制面板与顶部磨损</figcaption></figure>
+        <figure><img src="assets/hero-left.webp" alt="设备左侧结构视角" loading="lazy" data-full="assets/hero-left.webp"><figcaption>LEFT 3/4 VIEW · 外壳、提手与散热结构</figcaption></figure>
+        <figure><img src="assets/hero-right.webp" alt="设备右侧结构视角" loading="lazy" data-full="assets/hq-hero-right.png"><figcaption>RIGHT 3/4 VIEW · 控制面板与顶部磨损</figcaption></figure>
       </div>
     </section>
 
@@ -96,7 +83,7 @@
         <p class="file">FILE 03 / SCENE OVERVIEW</p>
         <h2 id="scene-title">地下工作间</h2>
       </header>
-      <img src="assets/room.webp" alt="末日地下工作间全景" loading="lazy">
+      <img src="assets/room.webp" alt="末日地下工作间全景" loading="lazy" data-full="assets/hq-room.png">
       <p class="scene-note">调查板、旧地图、工具与仍在运行的示波器共同构成幸存者的临时工作站。</p>
     </section>
 
@@ -110,52 +97,47 @@
 
     <section class="story-frame section-pad dark-section">
       <div class="story-copy"><p class="file">FILE 05 / SIGNAL LOCKED</p><h2>目标坐标已锁定</h2><p>重复信号逐渐稳定，屏幕显示出一组可被定位的坐标。</p></div>
-      <figure><img src="assets/signal-lock.webp" alt="屏幕锁定坐标的示波器" loading="lazy"><figcaption>32°37′N / 159°42′E · RANGE 00.0 KM</figcaption></figure>
+      <figure><img src="assets/signal-lock.webp" alt="屏幕锁定坐标的示波器" loading="lazy" data-full="assets/hq-signal-lock.png"><figcaption>32°37′N / 159°42′E · RANGE 00.0 KM</figcaption></figure>
     </section>
 
     <section class="story-frame reverse section-pad">
       <div class="story-copy"><p class="file">FILE 06 / TRACE</p><h2>线索汇合</h2><p>坐标信息与墙上的调查记录产生联系，目标不再只是随机噪声。</p></div>
-      <figure><img src="assets/evidence-wall.webp" alt="设备侧后方与线索墙" loading="lazy"><figcaption>设备、调查板与路线标记</figcaption></figure>
+      <figure><img src="assets/evidence-wall.webp" alt="设备侧后方与线索墙" loading="lazy" data-full="assets/hq-evidence-wall.png"><figcaption>设备、调查板与路线标记</figcaption></figure>
     </section>
 
     <section class="story-frame section-pad dark-section">
       <div class="story-copy"><p class="file">记录 07 / 坐标</p><h2>坐标区域确认</h2><p>路线已经标记，出发前的准备就此完成。</p></div>
-      <figure><img src="assets/map.webp" alt="标注目标位置的地图" loading="lazy"><figcaption>坐标记录 · ALPHA-01</figcaption></figure>
+      <figure><img src="assets/map.webp" alt="标注目标位置的地图" loading="lazy" data-full="assets/hq-map.png"><figcaption>坐标记录 · ALPHA-01</figcaption></figure>
     </section>
 
     <section class="departure">
-      <img src="assets/door.webp" alt="人物站在打开的门前准备离开" loading="lazy">
+      <img src="assets/door.webp" alt="人物站在打开的门前准备离开" loading="lazy" data-full="assets/hq-door.png">
       <div><p class="file">记录 08 / 20:17:03</p><h2>踏上新的征程</h2><p>门缝透进的光落在背影上。未知仍在前方，身后的信号依然继续。</p></div>
     </section>
 
-    <section class="quiet section-pad dark-section">
-      <figure><img src="assets/room.webp" alt="人物离开后的空房间" loading="lazy"></figure>
-      <div><p class="file">记录 09 / 余波</p><h2>寂静之后</h2><p>脚步声已经远去，只剩屏幕的微光守着这间旧工作室。</p></div>
-    </section>
-
     <section class="life" id="life">
-      <img src="assets/flower.webp" alt="废弃空间中生长的白色花朵" loading="lazy">
+      <img src="assets/flower.webp" alt="废弃空间中生长的白色花朵" loading="lazy" data-full="assets/hq-flower.png">
       <div><p class="file">FILE 10 / LIFE</p><h2>坐标的尽头，<br>仍有生命</h2></div>
     </section>
 
     <section class="details section-pad" id="details" aria-labelledby="details-title">
       <header class="section-heading"><p class="file">FILE 11—13 / DETAILS</p><h2 id="details-title">设备细节与使用痕迹</h2><p>高频接触区域以边缘抛光和油污为主，非操作区域保留积灰、掉漆与锈蚀。</p></header>
       <div class="detail-grid">
-        <figure class="wide"><img src="assets/plate.webp" alt="设备铭牌与屏幕边缘细节" loading="lazy"><figcaption>铭牌与屏幕边缘</figcaption></figure>
-        <figure><img src="assets/small-knob.webp" alt="小旋钮材质细节" loading="lazy"><figcaption>控制旋钮</figcaption></figure>
-        <figure><img src="assets/buttons.webp" alt="功能按键细节" loading="lazy"><figcaption>功能按键</figcaption></figure>
-        <figure><img src="assets/port.webp" alt="设备插口细节" loading="lazy"><figcaption>输入接口</figcaption></figure>
-        <figure><img src="assets/knob.webp" alt="主旋钮细节" loading="lazy"><figcaption>主控制旋钮</figcaption></figure>
+        <figure class="wide"><img src="assets/plate.webp" alt="设备铭牌与屏幕边缘细节" loading="lazy" data-full="assets/hq-plate.png"><figcaption>铭牌与屏幕边缘</figcaption></figure>
+        <figure><img src="assets/small-knob.webp" alt="小旋钮材质细节" loading="lazy" data-full="assets/hq-small-knob.png"><figcaption>控制旋钮</figcaption></figure>
+        <figure><img src="assets/buttons.webp" alt="功能按键细节" loading="lazy" data-full="assets/hq-buttons.png"><figcaption>功能按键</figcaption></figure>
+        <figure><img src="assets/port.webp" alt="设备插口细节" loading="lazy" data-full="assets/hq-port.png"><figcaption>输入接口</figcaption></figure>
+        <figure><img src="assets/knob.webp" alt="主旋钮细节" loading="lazy" data-full="assets/hq-knob.png"><figcaption>主控制旋钮</figcaption></figure>
       </div>
     </section>
 
     <section class="research section-pad" aria-labelledby="research-title">
       <header class="section-heading"><p class="file">资料整理 / 视觉方向</p><h2 id="research-title">从资料中提取设计依据</h2><p>我把收集到的资料分为设备结构、面板信息、空间氛围与旧化规律四组，用它们统一材质尺度和场景语言，而不是直接照搬某一张参考图。</p></header>
       <div class="reference-board">
-        <figure class="reference-wide"><img src="assets/research-device.webp" alt="示波器设备与旧化方向参考板" loading="lazy"><figcaption><b>01 / 设备结构</b><span>结构比例、功能分区、旋钮与散热孔</span></figcaption></figure>
-        <figure><img src="assets/research-interface.webp" alt="示波器面板文字与屏幕信息参考板" loading="lazy"><figcaption><b>02 / 面板信息</b><span>面板标识、屏幕字符与操作逻辑</span></figcaption></figure>
-        <figure><img src="assets/research-space.webp" alt="地下工作间空间氛围参考板" loading="lazy"><figcaption><b>03 / 空间氛围</b><span>管线、调查墙、冷暖光与封闭空间</span></figcaption></figure>
-        <figure class="reference-wide"><img src="assets/research-door.webp" alt="旧工业门和锈蚀分布参考板" loading="lazy"><figcaption><b>04 / 旧化规律</b><span>门体磨损、底部锈蚀与使用痕迹</span></figcaption></figure>
+        <figure class="reference-wide"><img src="assets/research-device.webp" alt="示波器设备与旧化方向参考板" loading="lazy" data-full="assets/hq-research-device.png"><figcaption><b>01 / 设备结构</b><span>结构比例、功能分区、旋钮与散热孔</span></figcaption></figure>
+        <figure><img src="assets/research-interface.webp" alt="示波器面板文字与屏幕信息参考板" loading="lazy" data-full="assets/hq-research-interface.png"><figcaption><b>02 / 面板信息</b><span>面板标识、屏幕字符与操作逻辑</span></figcaption></figure>
+        <figure><img src="assets/research-space.webp" alt="地下工作间空间氛围参考板" loading="lazy" data-full="assets/hq-research-space.png"><figcaption><b>03 / 空间氛围</b><span>管线、调查墙、冷暖光与封闭空间</span></figcaption></figure>
+        <figure class="reference-wide"><img src="assets/research-door.webp" alt="旧工业门和锈蚀分布参考板" loading="lazy" data-full="assets/hq-research-door.png"><figcaption><b>04 / 旧化规律</b><span>门体磨损、底部锈蚀与使用痕迹</span></figcaption></figure>
       </div>
       <p class="source-warning">参考资料来源：网页截图、Pinterest 与 Google 图片搜索，仅用于个人设计研究与视觉方向整理。</p>
     </section>
@@ -166,21 +148,21 @@
       <article class="process-block">
         <div class="process-copy"><p class="file">步骤 01 / 材质再设计</p><h3>面板材质逐层建立</h3><p>以基础金属为起点，依次加入涂层剥落、锈蚀污迹与面板标识。旧化密度依据操作频率分配，而不是平均铺满整个表面。</p></div>
         <div class="sp-stages">
-          <figure><img src="assets/sp-stage-01.webp" alt="面板基础表面与涂层阶段" loading="lazy"><figcaption><b>01</b> 基础表面</figcaption></figure>
-          <figure><img src="assets/sp-stage-02.webp" alt="面板涂层剥落阶段" loading="lazy"><figcaption><b>02</b> 涂层剥落</figcaption></figure>
-          <figure><img src="assets/sp-stage-03.webp" alt="面板锈蚀和污迹阶段" loading="lazy"><figcaption><b>03</b> 锈蚀与污迹</figcaption></figure>
-          <figure><img src="assets/sp-stage-04.webp" alt="加入文字和最终细节后的面板材质" loading="lazy"><figcaption><b>04</b> 标识与最终细节</figcaption></figure>
+          <figure><img src="assets/sp-stage-01.webp" alt="面板基础表面与涂层阶段" loading="lazy" data-full="assets/hq-sp-stage-01.png"><figcaption><b>01</b> 基础表面</figcaption></figure>
+          <figure><img src="assets/sp-stage-02.webp" alt="面板涂层剥落阶段" loading="lazy" data-full="assets/hq-sp-stage-02.png"><figcaption><b>02</b> 涂层剥落</figcaption></figure>
+          <figure><img src="assets/sp-stage-03.webp" alt="面板锈蚀和污迹阶段" loading="lazy" data-full="assets/hq-sp-stage-03.png"><figcaption><b>03</b> 锈蚀与污迹</figcaption></figure>
+          <figure><img src="assets/sp-stage-04.webp" alt="加入文字和最终细节后的面板材质" loading="lazy" data-full="assets/hq-sp-stage-04.png"><figcaption><b>04</b> 标识与最终细节</figcaption></figure>
         </div>
       </article>
 
       <article class="process-block">
         <div class="process-copy"><p class="file">步骤 02 / 灯光与后期调色</p><h3>同一机位的画面递进</h3><p>固定相机后，先用灰模验证空间关系，再逐步加入主光、设备功能光与体积氛围；最后在 AE 中统一冷暖关系、对比度与视觉焦点。</p></div>
         <div class="lighting-stages">
-          <figure><img src="assets/light-00-clay.webp" alt="场景灰模结构" loading="lazy"><figcaption><b>01</b> 灰模结构</figcaption></figure>
-          <figure><img src="assets/light-01-key.webp" alt="场景主光阶段" loading="lazy"><figcaption><b>02</b> 主光</figcaption></figure>
-          <figure><img src="assets/light-02-practical.webp" alt="加入屏幕和功能光的场景" loading="lazy"><figcaption><b>03</b> 功能光</figcaption></figure>
-          <figure><img src="assets/light-03-atmosphere.webp" alt="加入体积雾和氛围光的场景" loading="lazy"><figcaption><b>04</b> 氛围光与体积雾</figcaption></figure>
-          <figure><img src="assets/room.webp" alt="完成材质灯光和调色后的最终场景" loading="lazy"><figcaption><b>05</b> 最终画面</figcaption></figure>
+          <figure><img src="assets/light-00-clay.webp" alt="场景灰模结构" loading="lazy" data-full="assets/hq-light-00-clay.png"><figcaption><b>01</b> 灰模结构</figcaption></figure>
+          <figure><img src="assets/light-01-key.webp" alt="场景主光阶段" loading="lazy" data-full="assets/hq-light-01-key.png"><figcaption><b>02</b> 主光</figcaption></figure>
+          <figure><img src="assets/light-02-practical.webp" alt="加入屏幕和功能光的场景" loading="lazy" data-full="assets/hq-light-02-practical.png"><figcaption><b>03</b> 功能光</figcaption></figure>
+          <figure><img src="assets/light-03-atmosphere.webp" alt="加入体积雾和氛围光的场景" loading="lazy" data-full="assets/hq-light-03-atmosphere.png"><figcaption><b>04</b> 氛围光与体积雾</figcaption></figure>
+          <figure><img src="assets/room.webp" alt="完成材质灯光和调色后的最终场景" loading="lazy" data-full="assets/hq-room.png"><figcaption><b>05</b> 最终画面</figcaption></figure>
         </div>
       </article>
 
@@ -195,53 +177,6 @@
     </section>
   </main>
   <script src="script.js"></script>
-  <script id="work-image-lightbox-js">
-(()=>{
-  const gallery=[...document.querySelectorAll('main img')].filter(img=>!img.closest('a')&&!img.classList.contains('no-lightbox'));
-  if(!gallery.length)return;
-  const overlay=document.createElement('div');overlay.className='work-lightbox';overlay.setAttribute('role','dialog');overlay.setAttribute('aria-modal','true');overlay.setAttribute('aria-label','作品图片放大查看');
-  overlay.innerHTML='<div class="wl-viewport"><img alt=""></div><div class="wl-zoom-controls"><button type="button" class="wl-out" aria-label="缩小">−</button><button type="button" class="wl-in" aria-label="放大">+</button><button type="button" class="wl-reset" aria-label="还原缩放" style="font-size:12px;width:52px">还原</button></div><button type="button" class="wl-close" aria-label="关闭图片">×</button><button type="button" class="wl-prev" aria-label="上一张">‹</button><button type="button" class="wl-next" aria-label="下一张">›</button><span class="wl-hint">滚轮 / 双指缩放 · 拖动查看</span><span class="wl-counter"></span>';
-  document.body.appendChild(overlay);
-  const viewport=overlay.querySelector('.wl-viewport'),full=viewport.querySelector('img'),counter=overlay.querySelector('.wl-counter');
-  let current=0,prior=null,scale=1,dx=0,dy=0,prevOverflow='';
-  const pointers=new Map();let gesture=null,down=null,lastTap=0;
-  const clamp=(v,min,max)=>Math.max(min,Math.min(max,v));
-  function bounds(){const width=full.getBoundingClientRect().width/(scale||1),height=full.getBoundingClientRect().height/(scale||1);return {x:Math.max(0,(width*scale-viewport.clientWidth)/2),y:Math.max(0,(height*scale-viewport.clientHeight)/2)}}
-  function draw(){const b=bounds();dx=clamp(dx,-b.x,b.x);dy=clamp(dy,-b.y,b.y);full.style.transform=`translate(${dx}px,${dy}px) scale(${scale})`;}
-  function reset(){scale=1;dx=0;dy=0;pointers.clear();gesture=null;down=null;full.style.transform='';}
-  function zoom(next,x=viewport.clientWidth/2,y=viewport.clientHeight/2){next=clamp(next,1,4);const old=scale;const cx=x-viewport.clientWidth/2,cy=y-viewport.clientHeight/2;dx=cx-(cx-dx)*next/old;dy=cy-(cy-dy)*next/old;scale=next;draw()}
-  const show=n=>{current=(n+gallery.length)%gallery.length;reset();const item=gallery[current];full.src=item.currentSrc||item.src;full.alt=item.alt||'作品图片';counter.textContent=(current+1)+' / '+gallery.length;};
-  const close=()=>{overlay.classList.remove('is-open');document.body.style.overflow=prevOverflow;reset();full.removeAttribute('src');if(prior)prior.focus({preventScroll:true})};
-  gallery.forEach((img,index)=>{img.classList.add('work-gallery-clickable');img.tabIndex=0;img.setAttribute('role','button');img.setAttribute('aria-label','放大查看：'+(img.alt||'作品图片'));const open=()=>{prior=img;prevOverflow=document.body.style.overflow;show(index);overlay.classList.add('is-open');document.body.style.overflow='hidden';overlay.querySelector('.wl-close').focus({preventScroll:true})};img.addEventListener('click',open);img.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}})});
-  overlay.querySelector('.wl-close').addEventListener('click',close);
-  overlay.querySelector('.wl-prev').addEventListener('click',()=>show(current-1));overlay.querySelector('.wl-next').addEventListener('click',()=>show(current+1));
-  overlay.querySelector('.wl-in').addEventListener('click',()=>zoom(scale*1.5));overlay.querySelector('.wl-out').addEventListener('click',()=>zoom(scale/1.5));overlay.querySelector('.wl-reset').addEventListener('click',reset);
-  overlay.addEventListener('click',e=>{if(e.target===overlay)close()});
-  document.addEventListener('keydown',e=>{if(!overlay.classList.contains('is-open'))return;if(e.key==='Escape')close();if(e.key==='ArrowRight')show(current+1);if(e.key==='ArrowLeft')show(current-1);if(e.key==='+'||e.key==='=')zoom(scale*1.5);if(e.key==='-')zoom(scale/1.5)});
-  viewport.addEventListener('wheel',e=>{e.preventDefault();const box=viewport.getBoundingClientRect();zoom(scale*(e.deltaY<0?1.15:1/1.15),e.clientX-box.left,e.clientY-box.top)},{passive:false});
-  const coords=e=>({x:e.clientX,y:e.clientY});
-  function pinch(){const p=[...pointers.values()];return {dist:Math.hypot(p[0].x-p[1].x,p[0].y-p[1].y),x:(p[0].x+p[1].x)/2,y:(p[0].y+p[1].y)/2}}
-  viewport.addEventListener('pointerdown',e=>{
-    if(e.pointerType==='mouse'&&e.button!==0)return;
-    viewport.setPointerCapture(e.pointerId);pointers.set(e.pointerId,coords(e));
-    if(pointers.size===1){down={x:e.clientX,y:e.clientY,dx,dy,scale,time:Date.now(),moved:false};gesture=null}
-    if(pointers.size===2){const p=pinch();gesture={...p,scale,dx,dy};down=null}
-  });
-  viewport.addEventListener('pointermove',e=>{
-    if(!pointers.has(e.pointerId))return;
-    const last=pointers.get(e.pointerId);pointers.set(e.pointerId,coords(e));
-    if(pointers.size===2&&gesture){const p=pinch();const next=clamp(gesture.scale*(p.dist/Math.max(1,gesture.dist)),1,4);const rect=viewport.getBoundingClientRect();const cx=gesture.x-rect.left-rect.width/2,cy=gesture.y-rect.top-rect.height/2;scale=next;dx=gesture.dx+(p.x-gesture.x)-cx*(next/gesture.scale-1);dy=gesture.dy+(p.y-gesture.y)-cy*(next/gesture.scale-1);draw()}
-    else if(pointers.size===1&&down){const mx=e.clientX-down.x,my=e.clientY-down.y;if(Math.abs(mx)>7||Math.abs(my)>7)down.moved=true;if(scale>1){dx+=e.clientX-last.x;dy+=e.clientY-last.y;draw()}}
-  });
-  function release(e){if(!pointers.has(e.pointerId))return;const hadTwo=pointers.size>1;pointers.delete(e.pointerId);
-    if(!hadTwo&&down&&scale===1&&e.type==='pointerup'){const delta=e.clientX-down.x;if(Math.abs(delta)>65&&Math.abs(e.clientY-down.y)<90)show(current+(delta<0?1:-1));else if(!down.moved&&Date.now()-lastTap<350){const box=viewport.getBoundingClientRect();zoom(2.5,e.clientX-box.left,e.clientY-box.top);lastTap=0}else if(!down.moved)lastTap=Date.now()}
-    if(hadTwo&&pointers.size===1){const p=[...pointers.values()][0];down={...p,dx,dy,scale,time:Date.now(),moved:true}}else down=null;
-    gesture=null;
-  }
-  viewport.addEventListener('pointerup',release);viewport.addEventListener('pointercancel',release);
-  viewport.addEventListener('dblclick',e=>{if(e.pointerType==='touch')return;const b=viewport.getBoundingClientRect();zoom(scale>1?1:2.5,e.clientX-b.left,e.clientY-b.top)});
-  full.addEventListener('load',()=>{if(overlay.classList.contains('is-open'))draw()});
-})();
-</script>
+<script src="../../assets/hq-viewer.js" defer></script>
 </body>
 </html>

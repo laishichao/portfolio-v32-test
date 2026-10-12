@@ -50,19 +50,6 @@
 .controller-case .detail-grid img{display:block;width:100%;height:auto;aspect-ratio:auto;object-fit:initial;background:transparent}
 
 </style>
-<style id="work-image-lightbox-css">
-.work-lightbox{position:fixed;inset:0;z-index:2147483000;display:none;align-items:center;justify-content:center;background:rgba(6,9,11,.96);padding:52px 55px;box-sizing:border-box;overscroll-behavior:contain}
-.work-lightbox.is-open{display:flex}.work-lightbox img{max-height:calc(100dvh - 110px);max-width:100%;width:auto;height:auto;object-fit:contain;box-shadow:0 10px 60px #0006}.work-lightbox button{cursor:pointer;position:absolute;z-index:2;border:1px solid #ffffff70;background:#1d2020bd;color:#fff;border-radius:50%;width:42px;height:42px;font-size:26px;display:grid;place-items:center;line-height:1}.work-lightbox .wl-close{top:14px;right:16px}.work-lightbox .wl-prev{left:12px;top:50%;transform:translateY(-50%)}.work-lightbox .wl-next{right:12px;top:50%;transform:translateY(-50%)}.work-lightbox .wl-counter{position:absolute;bottom:18px;left:0;right:0;color:#eee;text-align:center;font:13px system-ui,sans-serif}.work-gallery-clickable{cursor:zoom-in}@media(max-width:600px){.work-lightbox{padding:52px 8px}.work-lightbox img{max-height:calc(100dvh - 120px)}.work-lightbox .wl-prev{left:5px;top:auto;bottom:12px;transform:none}.work-lightbox .wl-next{right:5px;top:auto;bottom:12px;transform:none}}
-
-/* Image zoom enhancement: scoped to the full-screen viewer only. */
-.work-lightbox .wl-viewport{position:relative;display:flex;align-items:center;justify-content:center;width:100%;height:100%;overflow:hidden;touch-action:none;user-select:none;cursor:grab}
-.work-lightbox .wl-viewport:active{cursor:grabbing}
-.work-lightbox .wl-viewport img{pointer-events:none;user-select:none;transform-origin:center center;will-change:transform;transition:none;max-width:100%;max-height:100%;object-fit:contain}
-.work-lightbox .wl-zoom-controls{position:absolute;top:14px;left:16px;z-index:4;display:flex;gap:8px}
-.work-lightbox .wl-zoom-controls button{position:static;width:38px;height:38px;font-size:22px}
-.work-lightbox .wl-hint{position:absolute;bottom:40px;left:0;right:0;pointer-events:none;text-align:center;color:#bbb;font:12px system-ui,sans-serif}
-@media(max-width:600px){.work-lightbox .wl-zoom-controls{top:12px;left:12px}.work-lightbox .wl-hint{bottom:52px;font-size:11px}}
-</style>
 </head>
 <body class="project-page controller-case">
 <nav class="project-nav"><a href="../../index.html#project-004">← 返回作品列表</a><a href="../whisky/index.html">下一项目：威士忌 →</a></nav>
@@ -71,65 +58,18 @@
 <div><div class="eyebrow">PROJECT 004 / FORM & LIGHT</div><h1>游戏手柄</h1><p class="english">Controller · Product Visual</p></div>
 <div class="case-lead"><p class="capability">曲面表现 / 轮廓布光 / 结构细节</p><p>以冷蓝与暖金色光线勾勒连续曲面，让握持形态在暗部中显现；从整体轮廓延伸至按键、摇杆与肩键的精细质感。</p></div>
 </header>
-<figure class="hero-figure"><img src="../../assets/controller-01.webp" alt="游戏手柄整体主视觉，冷暖轮廓光突出曲面造型" fetchpriority="high"><figcaption><strong>01 / 形态与光</strong><span>冷暖光线在曲面交界处形成层次，突出握持轮廓与按键布局。</span></figcaption></figure>
+<figure class="hero-figure"><img src="../../assets/controller-01.webp" alt="游戏手柄整体主视觉，冷暖轮廓光突出曲面造型" fetchpriority="high" data-full="../../assets/hq-controller-01.png"><figcaption><strong>01 / 形态与光</strong><span>冷暖光线在曲面交界处形成层次，突出握持轮廓与按键布局。</span></figcaption></figure>
 <section aria-labelledby="control-title"><div class="section-divider"><h2 id="control-title">操控细节</h2><span>CONTROL / 02—03</span></div>
 <div class="detail-grid">
-<figure><img src="../../assets/controller-02.webp" alt="游戏手柄十字键材质与边缘高光特写" loading="lazy"><figcaption><strong>02 / 十字键</strong><span>微弱的暖色反射沿边缘掠过，凸显按键厚度与表面肌理。</span></figcaption></figure>
-<figure><img src="../../assets/controller-04.webp" alt="游戏手柄摇杆与圆弧结构特写" loading="lazy"><figcaption><strong>03 / 摇杆结构</strong><span>弧形过渡、细腻暗部与柔和高光，共同呈现曲面间的结构关系。</span></figcaption></figure>
+<figure><img src="../../assets/controller-02.webp" alt="游戏手柄十字键材质与边缘高光特写" loading="lazy" data-full="../../assets/hq-controller-02.png"><figcaption><strong>02 / 十字键</strong><span>微弱的暖色反射沿边缘掠过，凸显按键厚度与表面肌理。</span></figcaption></figure>
+<figure><img src="../../assets/controller-04.webp" alt="游戏手柄摇杆与圆弧结构特写" loading="lazy" data-full="../../assets/hq-controller-04.png"><figcaption><strong>03 / 摇杆结构</strong><span>弧形过渡、细腻暗部与柔和高光，共同呈现曲面间的结构关系。</span></figcaption></figure>
 </div></section>
 <section aria-labelledby="shoulder-title"><div class="section-divider"><h2 id="shoulder-title">肩键与光影</h2><span>STRUCTURE / 04</span></div>
-<figure class="shoulder"><img src="../../assets/controller-03.webp" alt="游戏手柄肩键 LB RB 特写与冷暖布光" loading="lazy"><figcaption><strong>04 / 局部光影</strong><span>冷蓝轮廓与暖色指示光彼此呼应，强调肩键的层次、结构和空间深度。</span></figcaption></figure>
+<figure class="shoulder"><img src="../../assets/controller-03.webp" alt="游戏手柄肩键 LB RB 特写与冷暖布光" loading="lazy" data-full="../../assets/hq-controller-03.png"><figcaption><strong>04 / 局部光影</strong><span>冷蓝轮廓与暖色指示光彼此呼应，强调肩键的层次、结构和空间深度。</span></figcaption></figure>
 </section>
 <div class="closing-note"><span class="eyebrow">FORM / SURFACE / LIGHT</span><p>让光沿产品的结构流动，以克制的明暗与精确的局部构图，呈现手柄的形态和触感。</p></div>
 </main>
 <div class="project-end"><span>赖世超 · 3D视觉作品</span><a href="../../index.html#project-004">返回全部作品 ↑</a></div>
-<script id="work-image-lightbox-js">
-(()=>{
-  const gallery=[...document.querySelectorAll('main img')].filter(img=>!img.closest('a')&&!img.classList.contains('no-lightbox'));
-  if(!gallery.length)return;
-  const overlay=document.createElement('div');overlay.className='work-lightbox';overlay.setAttribute('role','dialog');overlay.setAttribute('aria-modal','true');overlay.setAttribute('aria-label','作品图片放大查看');
-  overlay.innerHTML='<div class="wl-viewport"><img alt=""></div><div class="wl-zoom-controls"><button type="button" class="wl-out" aria-label="缩小">−</button><button type="button" class="wl-in" aria-label="放大">+</button><button type="button" class="wl-reset" aria-label="还原缩放" style="font-size:12px;width:52px">还原</button></div><button type="button" class="wl-close" aria-label="关闭图片">×</button><button type="button" class="wl-prev" aria-label="上一张">‹</button><button type="button" class="wl-next" aria-label="下一张">›</button><span class="wl-hint">滚轮 / 双指缩放 · 拖动查看</span><span class="wl-counter"></span>';
-  document.body.appendChild(overlay);
-  const viewport=overlay.querySelector('.wl-viewport'),full=viewport.querySelector('img'),counter=overlay.querySelector('.wl-counter');
-  let current=0,prior=null,scale=1,dx=0,dy=0,prevOverflow='';
-  const pointers=new Map();let gesture=null,down=null,lastTap=0;
-  const clamp=(v,min,max)=>Math.max(min,Math.min(max,v));
-  function bounds(){const width=full.getBoundingClientRect().width/(scale||1),height=full.getBoundingClientRect().height/(scale||1);return {x:Math.max(0,(width*scale-viewport.clientWidth)/2),y:Math.max(0,(height*scale-viewport.clientHeight)/2)}}
-  function draw(){const b=bounds();dx=clamp(dx,-b.x,b.x);dy=clamp(dy,-b.y,b.y);full.style.transform=`translate(${dx}px,${dy}px) scale(${scale})`;}
-  function reset(){scale=1;dx=0;dy=0;pointers.clear();gesture=null;down=null;full.style.transform='';}
-  function zoom(next,x=viewport.clientWidth/2,y=viewport.clientHeight/2){next=clamp(next,1,4);const old=scale;const cx=x-viewport.clientWidth/2,cy=y-viewport.clientHeight/2;dx=cx-(cx-dx)*next/old;dy=cy-(cy-dy)*next/old;scale=next;draw()}
-  const show=n=>{current=(n+gallery.length)%gallery.length;reset();const item=gallery[current];full.src=item.currentSrc||item.src;full.alt=item.alt||'作品图片';counter.textContent=(current+1)+' / '+gallery.length;};
-  const close=()=>{overlay.classList.remove('is-open');document.body.style.overflow=prevOverflow;reset();full.removeAttribute('src');if(prior)prior.focus({preventScroll:true})};
-  gallery.forEach((img,index)=>{img.classList.add('work-gallery-clickable');img.tabIndex=0;img.setAttribute('role','button');img.setAttribute('aria-label','放大查看：'+(img.alt||'作品图片'));const open=()=>{prior=img;prevOverflow=document.body.style.overflow;show(index);overlay.classList.add('is-open');document.body.style.overflow='hidden';overlay.querySelector('.wl-close').focus({preventScroll:true})};img.addEventListener('click',open);img.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}})});
-  overlay.querySelector('.wl-close').addEventListener('click',close);
-  overlay.querySelector('.wl-prev').addEventListener('click',()=>show(current-1));overlay.querySelector('.wl-next').addEventListener('click',()=>show(current+1));
-  overlay.querySelector('.wl-in').addEventListener('click',()=>zoom(scale*1.5));overlay.querySelector('.wl-out').addEventListener('click',()=>zoom(scale/1.5));overlay.querySelector('.wl-reset').addEventListener('click',reset);
-  overlay.addEventListener('click',e=>{if(e.target===overlay)close()});
-  document.addEventListener('keydown',e=>{if(!overlay.classList.contains('is-open'))return;if(e.key==='Escape')close();if(e.key==='ArrowRight')show(current+1);if(e.key==='ArrowLeft')show(current-1);if(e.key==='+'||e.key==='=')zoom(scale*1.5);if(e.key==='-')zoom(scale/1.5)});
-  viewport.addEventListener('wheel',e=>{e.preventDefault();const box=viewport.getBoundingClientRect();zoom(scale*(e.deltaY<0?1.15:1/1.15),e.clientX-box.left,e.clientY-box.top)},{passive:false});
-  const coords=e=>({x:e.clientX,y:e.clientY});
-  function pinch(){const p=[...pointers.values()];return {dist:Math.hypot(p[0].x-p[1].x,p[0].y-p[1].y),x:(p[0].x+p[1].x)/2,y:(p[0].y+p[1].y)/2}}
-  viewport.addEventListener('pointerdown',e=>{
-    if(e.pointerType==='mouse'&&e.button!==0)return;
-    viewport.setPointerCapture(e.pointerId);pointers.set(e.pointerId,coords(e));
-    if(pointers.size===1){down={x:e.clientX,y:e.clientY,dx,dy,scale,time:Date.now(),moved:false};gesture=null}
-    if(pointers.size===2){const p=pinch();gesture={...p,scale,dx,dy};down=null}
-  });
-  viewport.addEventListener('pointermove',e=>{
-    if(!pointers.has(e.pointerId))return;
-    const last=pointers.get(e.pointerId);pointers.set(e.pointerId,coords(e));
-    if(pointers.size===2&&gesture){const p=pinch();const next=clamp(gesture.scale*(p.dist/Math.max(1,gesture.dist)),1,4);const rect=viewport.getBoundingClientRect();const cx=gesture.x-rect.left-rect.width/2,cy=gesture.y-rect.top-rect.height/2;scale=next;dx=gesture.dx+(p.x-gesture.x)-cx*(next/gesture.scale-1);dy=gesture.dy+(p.y-gesture.y)-cy*(next/gesture.scale-1);draw()}
-    else if(pointers.size===1&&down){const mx=e.clientX-down.x,my=e.clientY-down.y;if(Math.abs(mx)>7||Math.abs(my)>7)down.moved=true;if(scale>1){dx+=e.clientX-last.x;dy+=e.clientY-last.y;draw()}}
-  });
-  function release(e){if(!pointers.has(e.pointerId))return;const hadTwo=pointers.size>1;pointers.delete(e.pointerId);
-    if(!hadTwo&&down&&scale===1&&e.type==='pointerup'){const delta=e.clientX-down.x;if(Math.abs(delta)>65&&Math.abs(e.clientY-down.y)<90)show(current+(delta<0?1:-1));else if(!down.moved&&Date.now()-lastTap<350){const box=viewport.getBoundingClientRect();zoom(2.5,e.clientX-box.left,e.clientY-box.top);lastTap=0}else if(!down.moved)lastTap=Date.now()}
-    if(hadTwo&&pointers.size===1){const p=[...pointers.values()][0];down={...p,dx,dy,scale,time:Date.now(),moved:true}}else down=null;
-    gesture=null;
-  }
-  viewport.addEventListener('pointerup',release);viewport.addEventListener('pointercancel',release);
-  viewport.addEventListener('dblclick',e=>{if(e.pointerType==='touch')return;const b=viewport.getBoundingClientRect();zoom(scale>1?1:2.5,e.clientX-b.left,e.clientY-b.top)});
-  full.addEventListener('load',()=>{if(overlay.classList.contains('is-open'))draw()});
-})();
-</script>
+<script src="../../assets/hq-viewer.js" defer></script>
 </body>
 </html>

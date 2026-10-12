@@ -1,0 +1,53 @@
+V45 高清查看匹配记录
+原网页布局、排序、现有预览图保留；点击后使用对应高清原图。
+示波器 SP 材质 01-04 采用与旧缩略图视觉一致的映射，不按上传顺序硬套。
+显卡维持不变，无新高清素材。
+
+headphones: 5 images
+  ../../assets/headphone-02.webp => ../../assets/hq-headphone-02.png
+  ../../assets/headphone-01.webp => ../../assets/hq-headphone-01.png
+  ../../assets/headphone-03.webp => ../../assets/hq-headphone-03.png
+  ../../assets/headphone-04.webp => ../../assets/hq-headphone-04.png
+  ../../assets/headphone-05.webp => ../../assets/hq-headphone-05.png
+controller: 4 images
+  ../../assets/controller-01.webp => ../../assets/hq-controller-01.png
+  ../../assets/controller-02.webp => ../../assets/hq-controller-02.png
+  ../../assets/controller-04.webp => ../../assets/hq-controller-04.png
+  ../../assets/controller-03.webp => ../../assets/hq-controller-03.png
+whisky: 3 images
+  ../../assets/whisky-01.webp => ../../assets/hq-whisky-01.png
+  ../../assets/whisky-02.webp => ../../assets/hq-whisky-02.png
+  ../../assets/whisky-03.webp => ../../assets/hq-whisky-03.png
+toothbrush: 3 images
+  ../../assets/toothbrush-01.webp => ../../assets/hq-toothbrush-01.png
+  ../../assets/toothbrush-02.webp => ../../assets/hq-toothbrush-02.png
+  ../../assets/water-flosser-01.webp => ../../assets/hq-water-flosser-01.png
+apocalypse-oscilloscope: 28 images
+  assets/hero-selected.webp => assets/hq-hero-selected.png
+  assets/hero-left.webp => assets/hero-left.webp
+  assets/hero-right.webp => assets/hq-hero-right.png
+  assets/room.webp => assets/hq-room.png
+  assets/signal-lock.webp => assets/hq-signal-lock.png
+  assets/evidence-wall.webp => assets/hq-evidence-wall.png
+  assets/map.webp => assets/hq-map.png
+  assets/door.webp => assets/hq-door.png
+  assets/room.webp => assets/hq-room.png
+  assets/flower.webp => assets/hq-flower.png
+  assets/plate.webp => assets/hq-plate.png
+  assets/small-knob.webp => assets/hq-small-knob.png
+  assets/buttons.webp => assets/hq-buttons.png
+  assets/port.webp => assets/hq-port.png
+  assets/knob.webp => assets/hq-knob.png
+  assets/research-device.webp => assets/hq-research-device.png
+  assets/research-interface.webp => assets/hq-research-interface.png
+  assets/research-space.webp => assets/hq-research-space.png
+  assets/research-door.webp => assets/hq-research-door.png
+  assets/sp-stage-01.webp => assets/hq-sp-stage-01.png
+  assets/sp-stage-02.webp => assets/hq-sp-stage-02.png
+  assets/sp-stage-03.webp => assets/hq-sp-stage-03.png
+  assets/sp-stage-04.webp => assets/hq-sp-stage-04.png
+  assets/light-00-clay.webp => assets/hq-light-00-clay.png
+  assets/light-01-key.webp => assets/hq-light-01-key.png
+  assets/light-02-practical.webp => assets/hq-light-02-practical.png
+  assets/light-03-atmosphere.webp => assets/hq-light-03-atmosphere.png
+  assets/room.webp => assets/hq-room.png
