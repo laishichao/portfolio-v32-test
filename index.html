@@ -242,7 +242,12 @@ mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.14) 10%,rgba(0,0,0,
 }
 @media(max-width:360px){.site-header{padding-left:14px;padding-right:14px}.site-header nav{gap:10px}.name-composition .main-title{font-size:13vw!important}}
 </style>
-</head><body>
+<style id="v32-mobile-stability">
+@media(max-width:600px){#intro video{width:100%;height:100%;object-fit:contain;background:#080a0a}
+#intro.awaiting .playbtn{display:block;z-index:4;background:rgba(20,25,25,.94);color:white;border:1px solid #ffffff65;border-radius:40px}
+#intro.awaiting:after{content:'手机端点击播放片头，或直接跳过进入作品集';position:absolute;top:calc(50% + 50px);left:15px;right:15px;text-align:center;font-size:12px;letter-spacing:.04em;color:#d9dedb;pointer-events:none}
+#intro .actionbar{z-index:5}#intro .hint{z-index:5}}
+</style></head><body>
 <div id="intro"><video id="film" poster="assets/poster.jpg" autoplay muted playsinline webkit-playsinline preload="metadata"><source src="assets/intro-mobile.mp4" media="(max-width: 600px)" type="video/mp4"><source src="assets/intro.mp4" type="video/mp4"></video><div class="hint">LAI SHI CHAO &nbsp;/&nbsp; AN INTRODUCTION</div><button class="playbtn" id="play">▶ 播放片头</button><div class="error">片头视频暂时无法加载。<br>请确认 assets/intro.mp4 与 index.html 同在解压后的文件夹中。<br><button id="retry">重试播放</button></div><div class="actionbar"><button id="sound">开启声音 ↗</button><button id="skip">跳过片头 →</button></div></div><div id="flash" aria-hidden="true"></div>
 <header class="site-header"><a class="identity" href="#top"><i></i> LAI SHI CHAO <span style="color:#777">/ PORTFOLIO</span></a><nav><a href="#works">WORKS</a><a href="mailto:hello@example.com" id="contact">CONTACT</a></nav></header>
 <main id="top"><section class="hero" id="hero"><div class="depth-world" aria-hidden="true"><div class="plane"></div><div class="ring"></div><div class="depth-label">DEPTH / FORM / FEELING</div></div><div class="v18-sculpture" aria-label="流动的半透明雕塑"><video id="v18SculptureVideo" autoplay muted loop playsinline webkit-playsinline preload="metadata" poster="assets/sculpture-poster.jpg"><source src="assets/sculpture-mobile.mp4" media="(max-width: 600px)" type="video/mp4"><source src="assets/sculpture-motion.mp4" type="video/mp4"></video><button type="button" id="sculpturePlay" class="mobile-sculpture-play" aria-label="播放流动雕塑">▶ 播放动态雕塑</button></div><div class="index">MOTION DESIGN &nbsp;·&nbsp; VISUAL STORYTELLING &nbsp; / &nbsp; 2026</div><div class="name-composition" id="nameComposition"><h1 class="main-title"><span>LAI SHI</span><span>CHAO</span></h1><div class="name-signature" aria-label="赖世超"><span class="signature-cn">赖<br>世<br>超</span><span class="signature-caption">VISUAL<br>ARTIST</span></div><div class="name-echo" aria-hidden="true">L / S / C</div></div><div class="side-mark">AN OPEN WORLD OF VISUAL STORIES — 001</div><div class="bottom"><div class="desc"><strong>EVERY FRAME HAS A STORY.</strong>用影像、光线与运动，讲述视觉背后的故事。<br>探索每个画面中值得被感受的细节。</div><a class="scroll-link" href="#chapterTransition">EXPLORE SELECTED WORKS <span class="circle">↓</span></a></div></section>
@@ -390,7 +395,7 @@ function initElasticName(root){
   window.addEventListener('blur',leave);
 }
 
-(()=>{const intro=document.getElementById('intro'),film=document.getElementById('film'),flash=document.getElementById('flash'),sound=document.getElementById('sound'),play=document.getElementById('play');let entered=false;function enter(fromVideo){if(entered)return;entered=true;if(fromVideo){flash.classList.add('show');setTimeout(()=>{intro.classList.add('dismissed');flash.classList.add('clear')},160)}else{intro.classList.add('dismissed')}setTimeout(()=>{intro.style.display='none';flash.style.display='none';film.pause()},1500)}film.addEventListener('ended',()=>enter(true));document.getElementById('skip').addEventListener('click',()=>enter(false));sound.addEventListener('click',()=>{film.muted=!film.muted;sound.textContent=film.muted?'开启声音 ↗':'静音 ↗'});play.addEventListener('click',()=>film.play().then(()=>intro.classList.remove('awaiting')).catch(()=>intro.classList.add('failed')));document.getElementById('retry').addEventListener('click',()=>{intro.classList.remove('failed');film.load();film.play().catch(()=>intro.classList.add('awaiting'))});film.addEventListener('error',()=>intro.classList.add('failed'));const p=film.play();if(p&&p.catch)p.catch(()=>intro.classList.add('awaiting'));document.getElementById('contact').addEventListener('click',e=>{e.preventDefault();alert('联系入口将在你提供公开联系方式后启用。')});const hero=document.getElementById('hero');const nameComposition=document.getElementById('nameComposition');const motion=window.matchMedia('(prefers-reduced-motion: reduce)');if(!motion.matches){initElasticName(nameComposition);hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();hero.style.setProperty('--mx',((e.clientX-r.left)/r.width-.5).toFixed(3));hero.style.setProperty('--my',((e.clientY-r.top)/r.height-.5).toFixed(3))});hero.addEventListener('pointerleave',()=>{hero.style.setProperty('--mx',0);hero.style.setProperty('--my',0)});document.querySelectorAll('.tilt').forEach(el=>{el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform=`perspective(900px) rotateY(${x*5}deg) rotateX(${-y*5}deg)`});el.addEventListener('pointerleave',()=>el.style.transform='')})}if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}}),{threshold:.12});document.querySelectorAll('.work').forEach(el=>observer.observe(el))}else{document.querySelectorAll('.work').forEach(el=>el.classList.add('visible'))}})();
+(()=>{const intro=document.getElementById('intro'),film=document.getElementById('film'),flash=document.getElementById('flash'),sound=document.getElementById('sound'),play=document.getElementById('play');let entered=false;function enter(fromVideo){if(entered)return;entered=true;if(fromVideo){flash.classList.add('show');setTimeout(()=>{intro.classList.add('dismissed');flash.classList.add('clear')},160)}else{intro.classList.add('dismissed')}setTimeout(()=>{intro.style.display='none';flash.style.display='none';film.pause()},1500)}film.addEventListener('ended',()=>enter(true));document.getElementById('skip').addEventListener('click',()=>enter(false));sound.addEventListener('click',()=>{film.muted=!film.muted;sound.textContent=film.muted?'开启声音 ↗':'静音 ↗'});play.addEventListener('click',()=>film.play().then(()=>intro.classList.remove('awaiting')).catch(()=>intro.classList.add('failed')));document.getElementById('retry').addEventListener('click',()=>{intro.classList.remove('failed');film.load();film.play().catch(()=>intro.classList.add('awaiting'))});film.addEventListener('error',()=>intro.classList.add('failed'));if(!window.matchMedia('(max-width: 600px)').matches){const p=film.play();if(p&&p.catch)p.catch(()=>intro.classList.add('awaiting'));}else{intro.classList.add('awaiting');}document.getElementById('contact').addEventListener('click',e=>{e.preventDefault();alert('联系入口将在你提供公开联系方式后启用。')});const hero=document.getElementById('hero');const nameComposition=document.getElementById('nameComposition');const motion=window.matchMedia('(prefers-reduced-motion: reduce)');if(!motion.matches){initElasticName(nameComposition);hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();hero.style.setProperty('--mx',((e.clientX-r.left)/r.width-.5).toFixed(3));hero.style.setProperty('--my',((e.clientY-r.top)/r.height-.5).toFixed(3))});hero.addEventListener('pointerleave',()=>{hero.style.setProperty('--mx',0);hero.style.setProperty('--my',0)});document.querySelectorAll('.tilt').forEach(el=>{el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform=`perspective(900px) rotateY(${x*5}deg) rotateX(${-y*5}deg)`});el.addEventListener('pointerleave',()=>el.style.transform='')})}if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}}),{threshold:.12});document.querySelectorAll('.work').forEach(el=>observer.observe(el))}else{document.querySelectorAll('.work').forEach(el=>el.classList.add('visible'))}})();
 
 /* V20: scroll-controlled chapter appearance; no changes to spring letters or work tilts. */
 (()=>{
@@ -440,34 +445,61 @@ window.addEventListener('pageshow',restore);
 
 <script id="v32-mobile-video-support">
 (()=>{
- if(!window.matchMedia('(max-width: 600px)').matches)return;
- const sculpture=document.getElementById('v18SculptureVideo');
- const wrapper=sculpture?.closest('.v18-sculpture');
- const btn=document.getElementById('sculpturePlay');
- if(!sculpture||!wrapper||!btn)return;
- const showTap=()=>wrapper.classList.add('need-tap');
- const hideTap=()=>wrapper.classList.remove('need-tap');
- sculpture.muted=true;sculpture.defaultMuted=true;
- sculpture.setAttribute('playsinline','');sculpture.setAttribute('webkit-playsinline','');
- function tryPlay(){if(document.hidden)return;const p=sculpture.play();if(p&&p.then)p.then(hideTap).catch(showTap)}
- sculpture.addEventListener('playing',hideTap);
- sculpture.addEventListener('error',showTap);
- sculpture.addEventListener('stalled',()=>{if(sculpture.paused)showTap()});
- btn.addEventListener('click',tryPlay);
- document.addEventListener('visibilitychange',()=>{if(!document.hidden)tryPlay()});
- window.addEventListener('pageshow',tryPlay);
- // An initial user gesture can unlock playback where Android blocks autoplay.
- document.addEventListener('touchstart',()=>{if(sculpture.paused)tryPlay()},{once:true,passive:true});
- setTimeout(()=>{if(sculpture.paused)showTap()},900);
- tryPlay();
- const intro=document.getElementById('intro'),film=document.getElementById('film');
- if(intro&&film&&!document.documentElement.classList.contains('returning-to-works')){
-   film.muted=true;film.defaultMuted=true;
-   film.setAttribute('playsinline','');film.setAttribute('webkit-playsinline','');
-   const showIntroTap=()=>{if(!intro.classList.contains('dismissed')&&intro.style.display!=='none')intro.classList.add('awaiting')};
-   film.addEventListener('stalled',()=>{if(film.paused)showIntroTap()});
-   setTimeout(()=>{if(film.paused)showIntroTap()},1200);
- }
+  if(!matchMedia('(max-width: 600px)').matches)return;
+  const intro=document.getElementById('intro');
+  const film=document.getElementById('film');
+  const sculpture=document.getElementById('v18SculptureVideo');
+  const wrapper=sculpture?.closest('.v18-sculpture');
+  const btn=document.getElementById('sculpturePlay');
+  const skip=document.getElementById('skip');
+  const play=document.getElementById('play');
+  if(!intro||!film||!sculpture||!wrapper)return;
+  const mobileUrl='assets/sculpture-mobile.mp4';
+  const introUrl='assets/intro-mobile.mp4';
+  // Mobile first paint: image-based start, with explicit play or skip.
+  film.pause();film.removeAttribute('autoplay');film.removeAttribute('src');
+  film.querySelectorAll('source').forEach(x=>x.remove());
+  film.preload='none';film.poster='assets/poster.jpg';film.load();
+  intro.classList.add('awaiting');
+  const startFilm=()=>{
+    film.muted=true;film.defaultMuted=true;
+    film.playsInline=true;film.setAttribute('playsinline','');
+    if(!film.getAttribute('src')){film.src=introUrl;film.preload='auto';film.load()}
+    film.play().then(()=>intro.classList.remove('awaiting')).catch(()=>intro.classList.add('awaiting'));
+  };
+  // replace older click handler running before us, preventing simultaneous competing play calls
+  play?.addEventListener('click',(e)=>{e.stopImmediatePropagation();startFilm()},true);
+  sculpture.pause();sculpture.removeAttribute('autoplay');
+  sculpture.querySelectorAll('source').forEach(x=>x.remove());
+  sculpture.removeAttribute('src');sculpture.preload='none';sculpture.load();
+  let sculptureStarted=false;
+  const showTap=()=>wrapper.classList.add('need-tap');
+  const hideTap=()=>wrapper.classList.remove('need-tap');
+  function startSculpture(){
+    if(document.hidden)return;
+    if(intro.style.display!=='none'&&!intro.classList.contains('dismissed'))return;
+    if(!sculptureStarted){sculpture.src=mobileUrl;sculpture.preload='auto';sculptureStarted=true;sculpture.load()}
+    sculpture.muted=true;sculpture.defaultMuted=true;sculpture.loop=true;
+    sculpture.playsInline=true;
+    const result=sculpture.play();
+    if(result&&result.then)result.then(hideTap).catch(showTap);
+  }
+  btn?.addEventListener('click',startSculpture);
+  sculpture.addEventListener('playing',hideTap);
+  sculpture.addEventListener('error',showTap);
+  sculpture.addEventListener('stalled',()=>{if(sculpture.paused)showTap()});
+  // Skipping and completing intro both enable sculpture.
+  skip?.addEventListener('click',()=>setTimeout(startSculpture,600));
+  film.addEventListener('ended',()=>setTimeout(startSculpture,750));
+  const observer=new MutationObserver(()=>{
+    if(intro.classList.contains('dismissed')||intro.style.display==='none'){
+      setTimeout(startSculpture,500);observer.disconnect();
+    }
+  });
+  observer.observe(intro,{attributes:true,attributeFilter:['class','style']});
+  if(document.documentElement.classList.contains('returning-to-works')){film.pause();intro.style.display='none';}
+  document.addEventListener('visibilitychange',()=>{if(document.hidden)sculpture.pause();else startSculpture()});
+  window.addEventListener('pageshow',startSculpture);
 })();
 </script>
 </body></html>
